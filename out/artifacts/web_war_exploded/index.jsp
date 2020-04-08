@@ -23,10 +23,7 @@
           </form>
         </div>
         <div class="profile_cart">
-          <div class="profile_icon">
-            <i class="fas fa-user-alt"></i>
-            <p>Zaloguj się<br>lub załóż konto</p>
-          </div>
+          <i class="fas fa-user-alt"></i>
           <i class="fas fa-shopping-cart"></i>
         </div>
       </div>

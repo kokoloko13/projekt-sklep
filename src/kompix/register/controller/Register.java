@@ -1,5 +1,6 @@
 package kompix.register.controller;
 
+import kompix.UserAddress.model.Address;
 import kompix.register.dao.CheckUniqueUserDao;
 import kompix.register.dao.NewUserDao;
 import kompix.register.model.NewUser;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @WebServlet("/Register")
@@ -37,11 +39,22 @@ public class Register extends HttpServlet {
             newbie.setNewsletter(ta);
         }
 
+        Address newbieAddress = new Address();
+
                 boolean check = uniqueUserDao.checkUniqueUser(newbie);
             if(check == true){
                 newUserDao.reqisterNewUser(newbie);
-            }
 
-        response.sendRedirect(request.getContextPath() + "/logowanie.jsp");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
+                PrintWriter out= response.getWriter();
+                out.println("<font color=green>Account has been created.</font>");
+                rd.include(request, response);
+
+            }else{
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
+                PrintWriter out= response.getWriter();
+                out.println("<font color=red>Account with given email exist.</font>");
+                rd.include(request, response);
+            }
     }
 }

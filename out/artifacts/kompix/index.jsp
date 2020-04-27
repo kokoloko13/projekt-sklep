@@ -1,5 +1,45 @@
 <%@ page import="java.util.Calendar" %>
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String user_email = null;
+  Cookie[] cookies = request.getCookies();
+  if(cookies != null){
+    for(Cookie cookie : cookies){
+      if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
+    }
+  }
+
+  if(user_email != null) {
+    String SELECT_USER_SQL = "SELECT * FROM users WHERE user_email=?;";
+
+    ResultSet rs;
+    String first_name = "";
+
+    try {
+      Class.forName("com.mysql.cj.jdbc.Driver");
+
+      Connection conn = DriverManager
+              .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+
+      PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SQL);
+      preparedStatement.setString(1, user_email);
+
+
+      rs = preparedStatement.executeQuery();
+
+      rs.next();
+      first_name = user_email.substring(0, user_email.indexOf('@'));
+
+      if (!rs.getString("first_name").trim().equals("None")) {
+        first_name = rs.getString("first_name");
+      }
+      conn.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
+  %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +78,7 @@
             <i class="fas fa-bars"></i>
           </div>
           <div class="logo">
-            <a href="index.html"><p>Kompix</p></a>
+            <a href="index.jsp"><p>Kompix</p></a>
           </div>
           <div class="search">
             <form action="/Search" class="searchForm" method="GET">
@@ -53,8 +93,11 @@
           </div>
           <div class="profile_cart">
             <div class="profile-signin">
-              <i class="fas fa-user"></i>
-              <p>Zaloguj się<br />lub załóż konto</p>
+              <a href="<% if(user_email == null){
+                out.print("/logowanie.jsp");
+              }else{
+                out.print("/konto.jsp");
+              }%>"><i class="fas fa-user"></i></a>
             </div>
             <div class="shopping_cart">
               <i class="fas fa-shopping-cart"
@@ -114,37 +157,6 @@
                 </a>
               </li>
             </ul>
-          </div>
-          <div class="nav_login">
-            <i class="fas fa-times nav_exit_login"></i>
-            <div class="login_form">
-              <form action="/Login">
-                <p>Adres E-mail</p>
-                <input
-                  type="email"
-                  name="login"
-                  required
-                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                  oninput="this.setCustomValidity('')"
-                />
-                <p>Hasło</p>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  required
-                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                  oninput="this.setCustomValidity('')"
-                />
-                <button type="submit">Zaloguj się</button>
-              </form>
-            </div>
-            <div class="login_breaker">
-              <hr class="hr-text" data-content="Nie masz konta?" />
-            </div>
-            <div class="register_button">
-              <a href="#">Załóż konto</a>
-            </div>
           </div>
         </div>
       </nav>

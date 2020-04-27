@@ -50,62 +50,10 @@ if (window.innerWidth < 768) {
     }, 950);
   });
 
-  // PROFILE ICON //
-
-  let profileIconSignIn = document.getElementsByClassName("profile-signin")[0]
-    .firstElementChild;
-  let loginMenu = document.getElementsByClassName("nav_login")[0];
-  let exitMobileLogin = document.getElementsByClassName("nav_exit_login")[0];
-
-  profileIconSignIn.addEventListener("click", () => {
-    loginMenu.classList.add("toggled_login");
-
-    animateCSS(loginMenu, "slideInDown");
-
-    documentBody.classList.add("notScrollable");
-
-    let dim = document.createElement("div");
-    dim.classList.add("dim");
-    document.getElementsByClassName("container")[0].appendChild(dim);
-  });
-
-  exitMobileLogin.addEventListener("click", () => {
-    animateCSS(loginMenu, "slideOutUp");
-    document.getElementsByClassName("dim")[0].remove();
-    setTimeout(() => {
-      loginMenu.classList.remove("toggled_login");
-      documentBody.classList.remove("notScrollable");
-    }, 950);
-  });
-
-  let profileIconSignedIn = document.getElementsByClassName(
-    "profile-signed"
-  )[0];
-  profileIconSignedIn.addEventListener("click", () => {
-    location.href = "./konto.html";
-  });
 } else {
   ///////////////////////////
   // HANDLING DESKTOP ONLY //
   ///////////////////////////
 
-  // PROFILE ICON //
 
-  if (document.getElementsByClassName("profile-signed").length > 0) {
-    let profileIconSignedIn = document.getElementsByClassName(
-      "profile-signed"
-    )[0];
-
-    profileIconSignedIn.addEventListener("click", () => {
-      location.href = "./konto.html";
-    });
-  } else if (document.getElementsByClassName("profile-signin").length > 0) {
-    let profileIconSignIn = document.getElementsByClassName(
-      "profile-signin"
-    )[0];
-
-    profileIconSignIn.addEventListener("click", () => {
-      location.href = "./logowanie.html";
-    });
-  }
 }

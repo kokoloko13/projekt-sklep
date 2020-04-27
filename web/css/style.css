@@ -75,6 +75,50 @@
     grid-row: 1;
     font-size: 1.3rem;
   }
+  html body .container .alertCookies {
+    position: absolute;
+    bottom: 0;
+    border: none;
+    z-index: 4;
+    border-radius: 0 0 10px 10px;
+    background: #3db5d7;
+    background: linear-gradient(76deg, #3db5d7 0%, #ba18c2 100%);
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 80% 20%;
+        grid-template-columns: 80% 20%;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: -100vh;
+    -webkit-transition: margin-bottom 0.5s ease-in-out;
+    transition: margin-bottom 0.5s ease-in-out;
+  }
+  html body .container .alertCookies.active {
+    margin-bottom: 0 !important;
+  }
+  html body .container .alertCookies .productAlertName {
+    color: white;
+    font-size: 1.1rem;
+  }
+  html body .container .alertCookies .alertMessage {
+    padding: 1rem;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  html body .container .alertCookies i {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    font-size: 1.3rem;
+  }
   html body .container .login_breaker {
     text-align: center;
     padding: 1rem 0;
@@ -169,6 +213,12 @@
   html body .container .navbar .profile_cart .profile-signin,
   html body .container .navbar .profile_cart .profile-signed {
     padding-right: 3rem;
+  }
+  html body .container .navbar .profile_cart .profile-signin a,
+  html body .container .navbar .profile_cart .profile-signed a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
   }
   html body .container .navbar .profile_cart .profile-signin i,
   html body .container .navbar .profile_cart .profile-signed i {
@@ -1189,6 +1239,49 @@
     grid-row: 1;
     font-size: 1.3rem;
   }
+  body .container .alertCookies {
+    position: absolute;
+    bottom: 0;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    background: #3db5d7;
+    background: linear-gradient(76deg, #3db5d7 0%, #ba18c2 100%);
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 80% 20%;
+        grid-template-columns: 80% 20%;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: -100vh;
+    -webkit-transition: margin-bottom 0.5s ease-in-out;
+    transition: margin-bottom 0.5s ease-in-out;
+  }
+  body .container .alertCookies.active {
+    margin-bottom: 0 !important;
+  }
+  body .container .alertCookies .productAlertName {
+    color: white;
+    font-size: 1.1rem;
+  }
+  body .container .alertCookies .alertMessage {
+    padding: 1rem;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  body .container .alertCookies i {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    font-size: 1.3rem;
+  }
   body .container .navbar {
     padding: 0;
     margin: 0;
@@ -1275,6 +1368,12 @@
             align-items: center;
     position: relative;
     height: 4rem;
+    cursor: pointer;
+  }
+  body .container .navbar .profile_cart .profile-signin a,
+  body .container .navbar .profile_cart .profile-signed a {
+    text-decoration: none;
+    color: #000;
     cursor: pointer;
   }
   body .container .navbar .profile_cart .profile-signin i,

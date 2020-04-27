@@ -1,10 +1,15 @@
 package kompix.register.dao;
 
+import kompix.UserAddress.dao.AddressDao;
+import kompix.UserAddress.model.Address;
+import kompix.cipher.CipherKompix;
 import kompix.register.model.NewUser;
 
 import java.sql.*;
 
 public class NewUserDao {
+    private CipherKompix aes = new CipherKompix();
+    private AddressDao addressDao = new AddressDao();
 
     public int reqisterNewUser(NewUser newUser) {
 
@@ -25,15 +30,20 @@ public class NewUserDao {
             PreparedStatement preparedStatement = conn.prepareStatement(INSERT_NEWUSER_SQL);
             preparedStatement.setNull(1, Types.INTEGER);
             preparedStatement.setString(2, newUser.getEmail());
-            preparedStatement.setString(3, newUser.getPasswd());
+            preparedStatement.setString(3, aes.encrypt(newUser.getPasswd()));
             preparedStatement.setString(4, newUser.getName());
             preparedStatement.setString(5, newUser.getLastName());
             preparedStatement.setString(6, newUser.getPhoneNr());
-            preparedStatement.setNull(7, Types.INTEGER);
+
+            Address newUserAddress = new Address();
+
+            preparedStatement.setInt(7, (int)addressDao.createAddressInstance(newUserAddress));
             preparedStatement.setInt(8, newUser.getAdmin());
             preparedStatement.setInt(9, newUser.getIsActive());
             preparedStatement.setInt(10, newUser.getRulesAccepted().matches("True") ? 1 : 0);
             preparedStatement.setInt(11, newUser.getNewsletter().matches("True") ? 1 : 0);
+
+
 
             System.out.println(preparedStatement);
 

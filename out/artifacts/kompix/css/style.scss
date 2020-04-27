@@ -78,6 +78,49 @@
           }
         }
 
+        .alertCookies {
+          position: absolute;
+          bottom: 0;
+          border: none;
+          z-index: 4;
+          border-radius: 0 0 10px 10px;
+          background: rgb(61, 181, 215);
+          background: linear-gradient(
+            76deg,
+            rgba(61, 181, 215, 1) 0%,
+            rgba(186, 24, 194, 1) 100%
+          );
+          width: 100%;
+          display: grid;
+          grid-template-columns: 80% 20%;
+          grid-template-rows: 1fr;
+          justify-items: center;
+          align-items: center;
+          margin-bottom: -100vh;
+          transition: margin-bottom 0.5s ease-in-out;
+
+          &.active {
+            margin-bottom: 0 !important;
+          }
+
+          .productAlertName {
+            color: white;
+            font-size: 1.1rem;
+          }
+
+          .alertMessage {
+            padding: 1rem;
+            grid-column: 1;
+            grid-row: 1;
+          }
+
+          i {
+            grid-column: 2;
+            grid-row: 1;
+            font-size: 1.3rem;
+          }
+        }
+
         .login_breaker {
           text-align: center;
           padding: 1rem 0;
@@ -164,6 +207,12 @@
             .profile-signin,
             .profile-signed {
               padding-right: 3rem;
+              a {
+                text-decoration: none;
+                color: #000;
+                cursor: pointer;
+              }
+
               i {
                 font-size: 1.7rem;
               }
@@ -1194,6 +1243,48 @@
         }
       }
 
+      .alertCookies {
+        position: absolute;
+        bottom: 0;
+        border: none;
+        border-radius: 0 0 10px 10px;
+        background: rgb(61, 181, 215);
+        background: linear-gradient(
+          76deg,
+          rgba(61, 181, 215, 1) 0%,
+          rgba(186, 24, 194, 1) 100%
+        );
+        width: 100%;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        align-items: center;
+        margin-bottom: -100vh;
+        transition: margin-bottom 0.5s ease-in-out;
+
+        &.active {
+          margin-bottom: 0 !important;
+        }
+
+        .productAlertName {
+          color: white;
+          font-size: 1.1rem;
+        }
+
+        .alertMessage {
+          padding: 1rem;
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        i {
+          grid-column: 2;
+          grid-row: 1;
+          font-size: 1.3rem;
+        }
+      }
+
       .navbar {
         padding: 0;
         margin: 0;
@@ -1253,6 +1344,12 @@
             position: relative;
             height: 4rem;
             cursor: pointer;
+
+            a {
+              text-decoration: none;
+              color: #000;
+              cursor: pointer;
+            }
 
             i {
               font-size: 1.7rem;

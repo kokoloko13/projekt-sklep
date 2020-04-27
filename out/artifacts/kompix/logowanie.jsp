@@ -38,7 +38,7 @@
             <i class="fas fa-bars"></i>
           </div>
           <div class="logo">
-            <a href="index.html"><p>Kompix</p></a>
+            <a href="index.jsp"><p>Kompix</p></a>
           </div>
           <div class="search">
             <form action="/Search" class="searchForm" method="GET">
@@ -57,7 +57,6 @@
               style="opacity: 0.2; pointer-events: none;"
             >
               <i class="fas fa-user"></i>
-              <p>Zaloguj się<br />lub załóż konto</p>
             </div>
             <div class="shopping_cart">
               <i class="fas fa-shopping-cart"
@@ -118,37 +117,6 @@
               </li>
             </ul>
           </div>
-          <div class="nav_login">
-            <i class="fas fa-times nav_exit_login"></i>
-            <div class="login_form">
-              <form action="/Login">
-                <p>Adres E-mail</p>
-                <input
-                  type="email"
-                  name="login"
-                  required
-                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                  oninput="this.setCustomValidity('')"
-                />
-                <p>Hasło</p>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  required
-                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                  oninput="this.setCustomValidity('')"
-                />
-                <button type="submit">Zaloguj się</button>
-              </form>
-            </div>
-            <div class="login_breaker">
-              <hr class="hr-text" data-content="Nie masz konta?" />
-            </div>
-            <div class="register_button">
-              <a href="#">Załóż konto</a>
-            </div>
-          </div>
         </div>
       </nav>
 
@@ -171,7 +139,7 @@
               <p>Hasło</p>
               <input
                 type="password"
-                name="password"
+                name="passwd"
                 required
                 oninvalid="this.setCustomValidity('To pole jest wymagane!')"
                 oninput="this.setCustomValidity('')"

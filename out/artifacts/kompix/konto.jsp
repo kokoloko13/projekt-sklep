@@ -1,5 +1,42 @@
 <%@ page import="java.util.Calendar" %>
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String user_email = null;
+  Cookie[] cookies = request.getCookies();
+  if(cookies != null){
+    for(Cookie cookie : cookies){
+      if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
+    }
+  }
+  if(user_email == null){
+    response.sendRedirect("logowanie.jsp");
+  }else{
+
+
+
+  String SELECT_USER_SQL = "SELECT * FROM users, address WHERE users.id_address = address.id_address AND user_email=?;";
+
+  try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+
+    Connection conn = DriverManager
+            .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+
+    PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SQL);
+    preparedStatement.setString(1, user_email);
+
+
+    ResultSet rs = preparedStatement.executeQuery();
+
+    rs.next();
+    String first_name = user_email.substring(0, user_email.indexOf('@'));
+
+    if (!rs.getString("first_name").trim().equals("None")){
+      first_name = rs.getString("first_name");
+    }
+
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +75,7 @@
             <i class="fas fa-bars"></i>
           </div>
           <div class="logo">
-            <a href="/index.html"><p>Kompix</p></a>
+            <a href="/index.jsp"><p>Kompix</p></a>
           </div>
           <div class="search">
             <form action="/Search" class="searchForm" method="GET">
@@ -54,7 +91,7 @@
           <div class="profile_cart">
             <div class="profile-signed">
               <i class="fas fa-user"></i>
-              <p>Witaj, imię</p>
+              <p>Witaj, <br /><% out.print(first_name); %></p>
             </div>
             <div class="shopping_cart">
               <i class="fas fa-shopping-cart"
@@ -146,29 +183,29 @@
           <div class="account_content_personal_data" style="display: none;">
             <div class="account_content_personal_data_element">
               <h2>Imię i nazwisko:</h2>
-              <p>Jan Nowak</p>
+              <p><% out.print(rs.getString("first_name") + " " + rs.getString("last_name")); %></p>
             </div>
             <div class="account_content_personal_data_element">
               <h2>Adres / ulica:</h2>
-              <p>Przykładowa 24/2</p>
+              <p><% out.print(rs.getString("street")); %></p>
             </div>
             <div class="account_content_personal_data_element">
               <div>
                 <h2>Kod pocztowy:</h2>
-                <p>00-000</p>
+                <p><% out.print(rs.getString("zipcode")); %></p>
               </div>
               <div>
                 <h2>Miasto:</h2>
-                <p>Przykładno</p>
+                <p><% out.print(rs.getString("city")); %></p>
               </div>
             </div>
             <div class="account_content_personal_data_element">
               <h2>Telefon kontaktowy:</h2>
-              <p>123456789</p>
+              <p><% out.print(rs.getString("user_phone")); %></p>
             </div>
             <div class="account_content_personal_data_element">
               <h2>Adres e-mail:</h2>
-              <p>jan.nowak@email.pl</p>
+              <p><% out.print(rs.getString("user_email")); %></p>
             </div>
           </div>
           <div
@@ -178,31 +215,31 @@
             <form action="/ChangeData" method="post">
               <div class="input">
                 <p>Imię</p>
-                <input type="text" name="clientName" />
+                <input type="text" name="clientName" placeholder="<% out.print(rs.getString("first_name")); %>"/>
               </div>
               <div class="input">
                 <p>Nazwisko</p>
-                <input type="text" name="clientLastname" />
+                <input type="text" name="clientLastname" placeholder="<% out.print(rs.getString("last_name")); %>"/>
               </div>
               <div class="input">
                 <p>Adres / ulica</p>
-                <input type="text" name="clientStreet" />
+                <input type="text" name="clientStreet" placeholder="<% out.print(rs.getString("street")); %>"/>
               </div>
               <div class="input_zip">
                 <p>Kod pocztowy:</p>
-                <input type="text" name="clientZip" />
+                <input type="text" name="clientZip" placeholder="<% out.print(rs.getString("zipcode")); %>"/>
               </div>
               <div class="input_city">
                 <p>Miasto</p>
-                <input type="text" name="clientStreet" />
+                <input type="text" name="clientCity" placeholder="<% out.print(rs.getString("city")); %>"/>
               </div>
               <div class="input">
                 <p>Telefon kontaktowy:</p>
-                <input type="tel" name="clientPhone" />
+                <input type="tel" name="clientPhone" placeholder="<% out.print(rs.getString("user_phone")); %>"/>
               </div>
               <div class="input">
                 <p>Adres e-mail:</p>
-                <input type="email" name="clientEmail" />
+                <input type="email" name="clientEmail" placeholder="<% out.print(rs.getString("user_email")); %>"/>
               </div>
               <button type="submit">Zmień dane</button>
             </form>
@@ -252,74 +289,67 @@
               </div>
             </div>
             <div class="account_content_orders_list">
-              <div class="account_content_orders_list_order">
+              <%
+                String SELECT_USERORDERS_SQL = "SELECT * FROM orders, ship, vat, status WHERE user_mail=? "+
+                        "AND orders.id_ship = ship.id_ship AND orders.id_vat = vat.id_vat"+
+                        " AND orders.id_status = status.id_status";
+
+                  Connection connOrders = DriverManager
+                          .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+
+                  PreparedStatement ordersPrepStatement = conn.prepareStatement(SELECT_USERORDERS_SQL);
+                  preparedStatement.setString(1, user_email);
+
+
+                  ResultSet orders = ordersPrepStatement.executeQuery();
+
+                while(orders.next()){
+              %>
+
+                      <div class="account_content_orders_list_order">
                 <div class="account_content_orders_list_order_header">
                   <p class="header">Numer<br />zamówienia</p>
-                  <p>901811042815</p>
+                  <p><% out.print(orders.getTimestamp("order_num")); %></p>
                   <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="account_content_orders_list_order_element">
                   <p class="header">Data<br />zamówienia</p>
-                  <p>2020-04-15 17:43</p>
+                  <p><% out.print(orders.getTimestamp("order_date")); %></p>
                 </div>
                 <div class="account_content_orders_list_order_element">
                   <p class="header">Status</p>
-                  <p>Zakończone</p>
+                  <p><% out.print(orders.getTimestamp("status_name")); %></p>
                 </div>
                 <div class="account_content_orders_list_order_element">
                   <p class="header">Dostawa,<br />płatność</p>
-                  <p>Paczkomaty 24/7,<br />PayPal</p>
+                  <p><% out.print(orders.getTimestamp("ship_name")); %></p>
                 </div>
                 <div class="account_content_orders_list_order_element">
                   <p class="header">Śledzenie</p>
-                  <p><i class="fas fa-search-location"></i></p>
+                  <p><a href="<% out.print(orders.getTimestamp("tracking")); %>"><i class="fas fa-search-location"></i></a></p>
                 </div>
                 <div class="account_content_orders_list_order_element">
                   <p class="header">Wartość</p>
                   <p>
-                    <span class="price">43.92</span>
+                    <span class="price"><% out.print(orders.getTimestamp("total_price")); %></span>
                     <span class="currency">PLN</span>
                   </p>
                 </div>
                 <div class="account_content_orders_list_order_element">
                   <p class="header">Faktura</p>
-                  <p><i class="fas fa-file-invoice-dollar"></i></p>
+                  <p><a href="<% out.print(orders.getTimestamp("vat")); %>"><i class="fas fa-file-invoice-dollar"></i></a></p>
                 </div>
               </div>
-              <div class="account_content_orders_list_order">
-                <div class="account_content_orders_list_order_header">
-                  <p class="header">Numer<br />zamówienia</p>
-                  <p>901811042815</p>
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Data<br />zamówienia</p>
-                  <p>2020-04-15 17:43</p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Status</p>
-                  <p>Zakończone</p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Dostawa,<br />płatność</p>
-                  <p>Paczkomaty 24/7,<br />PayPal</p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Śledzenie</p>
-                  <p><i class="fas fa-search-location"></i></p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Wartość</p>
-                  <p>
-                    <span class="price">43.92</span>
-                    <span class="currency">PLN</span>
-                  </p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Faktura</p>
-                  <p><i class="fas fa-file-invoice-dollar"></i></p>
-                </div>
-              </div>
+
+              <%
+                  };
+                  conn.close();
+                  connOrders.close();
+                }catch(SQLException e){
+                  e.printStackTrace();
+                }
+                }%>
+
             </div>
           </div>
         </div>

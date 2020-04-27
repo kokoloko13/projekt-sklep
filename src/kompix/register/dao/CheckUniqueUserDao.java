@@ -23,14 +23,17 @@ public class CheckUniqueUserDao {
             ResultSet res = preparedStatement.executeQuery();
 
             if(res.next() == false){
+                conn.close();
                 return true;
             }else{
+                conn.close();
                 return false;
             }
 
         }catch(ClassNotFoundException | SQLException e){
             e.printStackTrace();
         }
+
 
         return false;
 

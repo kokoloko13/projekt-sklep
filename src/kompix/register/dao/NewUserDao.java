@@ -38,6 +38,7 @@ public class NewUserDao {
             System.out.println(preparedStatement);
 
             result = preparedStatement.executeUpdate();
+            conn.close();
 
         }catch(ClassNotFoundException | SQLException e){
             e.printStackTrace();

@@ -27,7 +27,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- Title -->
-    <title>Sklep komputerowy Kompix | Strona Główna</title>
+    <title>Sklep komputerowy Kompix | Logowanie</title>
   </head>
   <body>
     <div class="container">
@@ -52,7 +52,10 @@
             </form>
           </div>
           <div class="profile_cart">
-            <div class="profile-signin">
+            <div
+              class="profile-signin"
+              style="opacity: 0.2; pointer-events: none;"
+            >
               <i class="fas fa-user"></i>
               <p>Zaloguj się<br />lub załóż konto</p>
             </div>
@@ -149,109 +152,101 @@
         </div>
       </nav>
 
-      <!-- Alert -->
-      <div class="alert">
-        <p class="alertMessage">
-          Produkt <span class="productAlertName">Macbook Pro 15"</span> został
-          dodany do koszyka.
-        </p>
-        <i class="fas fa-times"></i>
-      </div>
-
-      <!-- Steals-->
-      <div class="steals">
-        <div class="breaker">
-          <div class="breaker_title"><h2>Okazje</h2></div>
-          <div class="breaker_line"></div>
-        </div>
-        <div class="products">
-          <i class="fas fa-chevron-left"></i>
-
-          <% for(int i=0; i < 5; i++){ %>
-
-          <div class="product">
-            <div class="product_thumb">
-              <img src="images/thumb.png" alt="Product Thumbnail" />
+      <!-- Login / Register -->
+      <div class="login_page">
+        <div class="login_page_login">
+          <form action="/Login" method="post">
+            <h2>Klient</h2>
+            <div class="input">
+              <p>Adres E-mail</p>
+              <input
+                type="email"
+                name="login"
+                required
+                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                oninput="this.setCustomValidity('')"
+              />
             </div>
-            <div class="product_title"><a href="#">Macbook Pro 15"</a></div>
-            <div class="product_priceAndControl">
-              <div class="product_price">
-                <span class="price">7399.00</span>
-                <span class="currency">PLN</span>
-              </div>
-              <div class="product_control">
-                <i class="fas fa-cart-plus"></i>
-              </div>
+            <div class="input">
+              <p>Hasło</p>
+              <input
+                type="password"
+                name="password"
+                required
+                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                oninput="this.setCustomValidity('')"
+              />
             </div>
-          </div>
-
-          <% } %>
-
-          <i class="fas fa-chevron-right"></i>
-          <div class="showMore">
-            <a href="#"><button>Pokaż więcej</button></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- News -->
-      <div class="new_products">
-        <div class="breaker">
-          <div class="breaker_title"><h2>Nowości</h2></div>
-          <div class="breaker_line"></div>
-        </div>
-        <div class="products">
-          <i class="fas fa-chevron-left"></i>
-
-          <% for(int i=0; i < 5; i++){ %>
-
-          <div class="product">
-            <div class="product_thumb">
-              <img src="images/thumb.png" alt="Product Thumbnail" />
+            <div class="checks">
+              <label>
+                <input type="checkbox" name="stayLogged" />
+                <p>
+                  Nie wylogowuj mnie.
+                </p>
+              </label>
             </div>
-            <div class="product_title"><a href="#">Macbook Pro 15"</a></div>
-            <div class="product_priceAndControl">
-              <div class="product_price">
-                <span class="price">7399.00</span>
-                <span class="currency">PLN</span>
-              </div>
-              <div class="product_control">
-                <i class="fas fa-cart-plus"></i>
-              </div>
+            <button type="submit">Zaloguj się</button>
+          </form>
+        </div>
+        <div class="login_breaker">
+          <hr class="hr-text" data-content="Nie masz konta?" />
+        </div>
+        <div class="login_page_register">
+          <form action="/Register" method="post">
+            <h2>Zostań klientem</h2>
+            <div class="input">
+              <p>Adres E-mail</p>
+              <input
+                type="email"
+                name="login"
+                required
+                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                oninput="this.setCustomValidity('')"
+              />
             </div>
-          </div>
-
-          <% } %>
-
-          <i class="fas fa-chevron-right"></i>
-          <div class="showMore">
-            <a href="#"><button>Pokaż więcej</button></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Newsletter -->
-      <div class="newsletter">
-        <div class="newsletter_left">
-          <div class="newsletter_left_img">
-            <i class="far fa-envelope-open"></i>
-          </div>
-          <div class="newsletter_left_title">
-            <h2>Newsletter</h2>
-          </div>
-        </div>
-        <div class="newsletter_right">
-          <div class="newsletter_right_info">
-            <p>Nie przegap żadnej promocji, zdobywaj dodatkowe rabaty.</p>
-          </div>
-          <form action="/Newsletter" method="post">
-            <input
-              type="email"
-              name="newsletter_email"
-              id="newsletter_email"
-              placeholder="Twój e-mail"
-            />
-            <button type="submit">Zapisz się</button>
+            <div class="input">
+              <p>Hasło</p>
+              <input
+                type="password"
+                name="passwd"
+                required
+                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                oninput="this.setCustomValidity('')"
+              />
+            </div>
+            <div class="input">
+              <p>Powtórz hasło</p>
+              <input
+                type="password"
+                name="passwordAgain"
+                required
+                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                oninput="this.setCustomValidity('')"
+              />
+            </div>
+            <div class="checks">
+              <label>
+                <input
+                  type="checkbox"
+                  name="rulesAccepted"
+                  value="True"
+                  required
+                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                  oninput="this.setCustomValidity('')"
+                />
+                <p>
+                  Akceptuje
+                  <a href="#">regulamin</a> sklepu.
+                </p>
+              </label>
+              <label>
+                <input type="checkbox" name="newsletterAccepted" value="True"/>
+                <p>
+                  Chcę otrzymywać newsletter.
+                </p>
+              </label>
+            </div>
+            <button type="submit">Załóż konto</button>
           </form>
         </div>
       </div>
@@ -324,8 +319,6 @@
       </footer>
     </div>
     <script src="js/animate.js"></script>
-    <script src="js/alert.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/addCart.js"></script>
   </body>
 </html>

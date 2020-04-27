@@ -15,8 +15,6 @@ CREATE SCHEMA IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_polis
 -- -----------------------------------------------------
 -- Table `shop`.`status`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`status` ;
-
 CREATE TABLE IF NOT EXISTS `shop`.`status` (
   `status_id` INT NOT NULL AUTO_INCREMENT,
   `status_name` VARCHAR(45) NOT NULL,
@@ -26,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `shop`.`status` (
 -- -----------------------------------------------------
 -- Table `shop`.`vat`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`vat` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`vat` (
   `id_vat` INT(11) NOT NULL AUTO_INCREMENT,
@@ -39,7 +36,6 @@ COLLATE = utf8_polish_ci;
 -- -----------------------------------------------------
 -- Table `shop`.`address`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`address` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`address` (
   `id_address` INT(11) NOT NULL AUTO_INCREMENT,
@@ -54,9 +50,8 @@ COLLATE = utf8_polish_ci;
 
 
 -- -----------------------------------------------------
--- Table `shop`.`user`
+-- Table `shop`.`users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`user` (
   `id_user` INT(11) NOT NULL AUTO_INCREMENT,
@@ -79,7 +74,6 @@ COLLATE = utf8_polish_ci;
 -- -----------------------------------------------------
 -- Table `shop`.`ship`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`ship` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`ship` (
   `id_ship` INT(11) NOT NULL AUTO_INCREMENT,
@@ -93,7 +87,6 @@ COLLATE = utf8_polish_ci;
 -- -----------------------------------------------------
 -- Table `shop`.`orders`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`orders` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`orders` (
   `id_order` INT(11) NOT NULL AUTO_INCREMENT,
@@ -127,7 +120,6 @@ COLLATE = utf8_polish_ci;
 -- -----------------------------------------------------
 -- Table `shop`.`categories`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`categories` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`categories` (
   `id_category` INT(11) NOT NULL AUTO_INCREMENT,
@@ -141,7 +133,6 @@ COLLATE = utf8_polish_ci;
 -- -----------------------------------------------------
 -- Table `shop`.`products`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`products` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`products` (
   `id_products` INT(11) NOT NULL AUTO_INCREMENT,
@@ -165,7 +156,6 @@ COLLATE = utf8_polish_ci;
 -- -----------------------------------------------------
 -- Table `shop`.`orderProduct`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `shop`.`orderProduct` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`orderProduct` (
   `orderProduct_id` INT NOT NULL AUTO_INCREMENT,
@@ -185,7 +175,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`orderProduct` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-USE `shop` ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

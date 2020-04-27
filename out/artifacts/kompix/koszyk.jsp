@@ -27,7 +27,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- Title -->
-    <title>Sklep komputerowy Kompix | Strona Główna</title>
+    <title>Sklep komputerowy Kompix | Koszyk</title>
   </head>
   <body>
     <div class="container">
@@ -149,110 +149,81 @@
         </div>
       </nav>
 
-      <!-- Alert -->
-      <div class="alert">
-        <p class="alertMessage">
-          Produkt <span class="productAlertName">Macbook Pro 15"</span> został
-          dodany do koszyka.
-        </p>
-        <i class="fas fa-times"></i>
-      </div>
-
-      <!-- Steals-->
-      <div class="steals">
-        <div class="breaker">
-          <div class="breaker_title"><h2>Okazje</h2></div>
-          <div class="breaker_line"></div>
-        </div>
-        <div class="products">
-          <i class="fas fa-chevron-left"></i>
-
-          <% for(int i=0; i < 5; i++){ %>
-
-          <div class="product">
-            <div class="product_thumb">
-              <img src="images/thumb.png" alt="Product Thumbnail" />
+      <!-- Checkout -->
+      <div class="cart">
+        <div class="cart_step">
+          <div class="cart_step_content">
+            <div class="cart_step_content_header">
+              <h2>Koszyk (<span id="cartCount">0</span>)</h2>
             </div>
-            <div class="product_title"><a href="#">Macbook Pro 15"</a></div>
-            <div class="product_priceAndControl">
-              <div class="product_price">
-                <span class="price">7399.00</span>
-                <span class="currency">PLN</span>
-              </div>
-              <div class="product_control">
-                <i class="fas fa-cart-plus"></i>
-              </div>
+            <div class="cart_step_content_list">
+              <ul class="product_list"></ul>
             </div>
           </div>
-
-          <% } %>
-
-          <i class="fas fa-chevron-right"></i>
-          <div class="showMore">
-            <a href="#"><button>Pokaż więcej</button></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- News -->
-      <div class="new_products">
-        <div class="breaker">
-          <div class="breaker_title"><h2>Nowości</h2></div>
-          <div class="breaker_line"></div>
-        </div>
-        <div class="products">
-          <i class="fas fa-chevron-left"></i>
-
-          <% for(int i=0; i < 5; i++){ %>
-
-          <div class="product">
-            <div class="product_thumb">
-              <img src="images/thumb.png" alt="Product Thumbnail" />
+          <div class="cart_step_info">
+            <p>Kod rabatowy:</p>
+            <div class="cartCode">
+              <form action="" method="post">
+                <input type="text" id="cartCode" />
+                <button>Aktywuj</button>
+              </form>
             </div>
-            <div class="product_title"><a href="#">Macbook Pro 15"</a></div>
-            <div class="product_priceAndControl">
-              <div class="product_price">
-                <span class="price">7399.00</span>
-                <span class="currency">PLN</span>
+            <div class="cartDelivery">
+              <p>Sposób dostawy:</p>
+              <select name="delivery" id="delivery">
+                <option value="DPD" selected>Kurier DPD | 15PLN</option>
+                <option value="DHL"> Kurier DHL | 15PLN</option>
+                <option value="inpost">Inpost, Paczkomaty 24/7 | 10PLN</option>
+              </select>
+            </div>
+            <hr />
+            <div class="cart_summary">
+              <div class="cart_summary_code">
+                <p>Rabat:</p>
+                <p>
+                  <span class="cart_summary_code_value">0</span>
+                </p>
               </div>
-              <div class="product_control">
-                <i class="fas fa-cart-plus"></i>
+              <div class="cart_summary_delivery">
+                <p>Dostawa:</p>
+                <p>
+                  <span class="cart_summary_delivery_value">0</span>
+                  <span class="currency">PLN</span>
+                </p>
+              </div>
+              <div class="cart_summary_cartCost">
+                <p>Wartość<br />koszyka</p>
+                <p>
+                  <span class="cart_summary_cartCost_value">0</span>
+                  <span class="currency">PLN</span>
+                </p>
+              </div>
+              <div class="cart_summary_cost">
+                <p>Łącznie:</p>
+                <p>
+                  <span class="cart_summary_cost_value">0</span>
+                  <span class="currency">PLN</span>
+                </p>
               </div>
             </div>
-          </div>
-
-          <% } %>
-
-          <i class="fas fa-chevron-right"></i>
-          <div class="showMore">
-            <a href="#"><button>Pokaż więcej</button></a>
+            <div class="checkoutButton">
+              <p>Przejdź do płatności</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Newsletter -->
-      <div class="newsletter">
-        <div class="newsletter_left">
-          <div class="newsletter_left_img">
-            <i class="far fa-envelope-open"></i>
+        <div class="cart_step">
+          <div class="cart_step_thankyou">
+            <h2>Dziękujemy za dokonanie zakupu.</h2>
+            <p>
+              Potwierdzenie wraz z fakturą zakupu zostało wysłane na twój adres
+              e-mail przypisany do konta.
+            </p>
+            <p>
+              Informacje dotyczące zamówienia możesz sprawdzić także na swoim
+              <a href="konto.html#zamowienia">koncie</a>.
+            </p>
+            <a class="thankyou_back" href="/index.html">Powrót</a>
           </div>
-          <div class="newsletter_left_title">
-            <h2>Newsletter</h2>
-          </div>
-        </div>
-        <div class="newsletter_right">
-          <div class="newsletter_right_info">
-            <p>Nie przegap żadnej promocji, zdobywaj dodatkowe rabaty.</p>
-          </div>
-          <form action="/Newsletter" method="post">
-            <input
-              type="email"
-              name="newsletter_email"
-              id="newsletter_email"
-              placeholder="Twój e-mail"
-            />
-            <button type="submit">Zapisz się</button>
-          </form>
         </div>
       </div>
 
@@ -324,8 +295,7 @@
       </footer>
     </div>
     <script src="js/animate.js"></script>
-    <script src="js/alert.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/addCart.js"></script>
+    <script src="js/cart.js"></script>
   </body>
 </html>

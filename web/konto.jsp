@@ -303,7 +303,10 @@
 
                   ResultSet orders = ordersPrepStatement.executeQuery();
 
-                while(orders.next()){
+                if (!orders.next() ) {
+                  System.out.println("no data");
+                } else {
+                  do{
               %>
 
                       <div class="account_content_orders_list_order">
@@ -342,7 +345,8 @@
               </div>
 
               <%
-                  };
+                  }while(orders.next());
+                    }
                   conn.close();
                   connOrders.close();
                 }catch(SQLException e){

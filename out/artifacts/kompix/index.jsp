@@ -9,36 +9,6 @@
       if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
     }
   }
-
-  if(user_email != null) {
-    String SELECT_USER_SQL = "SELECT * FROM users WHERE user_email=?;";
-
-    ResultSet rs;
-    String first_name = "";
-
-    try {
-      Class.forName("com.mysql.cj.jdbc.Driver");
-
-      Connection conn = DriverManager
-              .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-
-      PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SQL);
-      preparedStatement.setString(1, user_email);
-
-
-      rs = preparedStatement.executeQuery();
-
-      rs.next();
-      first_name = user_email.substring(0, user_email.indexOf('@'));
-
-      if (!rs.getString("first_name").trim().equals("None")) {
-        first_name = rs.getString("first_name");
-      }
-      conn.close();
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-  }
   %>
 <!DOCTYPE html>
 <html lang="en">

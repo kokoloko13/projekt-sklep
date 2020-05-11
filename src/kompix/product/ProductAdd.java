@@ -97,7 +97,7 @@ public class ProductAdd extends HttpServlet {
             }
             int row = statement.executeUpdate();
             if (row > 0) {
-                message = "File uploaded and saved into database";
+                out.println("<font color=green>Produkt Dodany</font>");
             }
             conn.close();
         } catch (Exception e) {

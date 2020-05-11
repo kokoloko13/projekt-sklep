@@ -27,6 +27,7 @@ public class CategoryAdd extends HttpServlet {
             Statement st = conn.createStatement();
 
             st.executeUpdate("insert into categories(category_name)values('" + this.category + "')");
+            out.println("<font color=green>Kategoria Dodana</font>");
             conn.close();
         } catch (Exception e) {
             System.out.print(e);

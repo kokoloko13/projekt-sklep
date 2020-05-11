@@ -1,8 +1,5 @@
 package kompix.product;
 
-import kompix.UserAddress.model.Address;
-import kompix.register.model.NewUser;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -11,14 +8,12 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.List;
 @WebServlet("/ProductAdd")
 @MultipartConfig(maxFileSize = 16177215)
 public class ProductAdd extends HttpServlet {
@@ -26,7 +21,7 @@ public class ProductAdd extends HttpServlet {
     private int amount;
     private float price;
     private String describe;
-    private String category="1";
+    private String category;
     private InputStream photo1;
     private InputStream photo2;
     private InputStream photo3;
@@ -34,6 +29,7 @@ public class ProductAdd extends HttpServlet {
     private String dbURL = "jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private String dbUser = "root";
     private String dbPass = "";
+    private static final long serialVersionUID = 1L;
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +37,7 @@ public class ProductAdd extends HttpServlet {
         String amount_tmp=request.getParameter("productAmount");
         String price_tmp=request.getParameter("productPrice");
         describe=request.getParameter("productDesc");
-        //category=request.getParameter("productCategory");
+        category=request.getParameter("productCategory");
         Part photopart1=request.getPart("file1");
         if(photopart1!=null){
             System.out.println(photopart1.getName());
@@ -69,7 +65,7 @@ public class ProductAdd extends HttpServlet {
         price=Float.parseFloat(price_tmp);
 
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/dodaj-produkt.html");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/dodaj-produkt.jsp");
             PrintWriter out= response.getWriter();
         Connection conn = null; // connection to the database
         String message = null;
@@ -103,7 +99,7 @@ public class ProductAdd extends HttpServlet {
             if (row > 0) {
                 message = "File uploaded and saved into database";
             }
-
+            conn.close();
         } catch (Exception e) {
             System.out.print(e);
             e.printStackTrace();

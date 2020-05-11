@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <!-- Animate css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    />
-    <!-- Style -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <!-- Title -->
-    <title>Sklep komputerowy Kompix | Dodawanie produktu</title>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Add product -->
-      <div class="add_product">
-        <form action="/CategoryAdd" method="post" enctype="multipart/form-data">
-          <div class="files_container">
-            <h2>Dodaj Kategorię</h2>
-            <div class="inputs_container">
-              <input
-                      type="text"
-                      name="category"
-                      required
-                      oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                      oninput="this.setCustomValidity('')"
-              />
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts -->
+  <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet"
+  />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap"
+          rel="stylesheet"
+  />
+  <!-- Fontawesome -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  />
+  <!-- Animate css -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+  />
+  <!-- Style -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- Title -->
+  <title>Sklep komputerowy Kompix | Dodawanie produktu</title>
+</head>
+<body>
+<div class="container">
+  <!-- Add category -->
+  <div class="add_product">
+    <form action="/CategoryAdd" method="post" >
 
-          <button type="submit">Dodaj produkt</button>
-        </form>
-      </div>
-    </div>
-    <script src="../js/addProduct.js"></script>
-  </body>
+      <div class="inputs_container">
+        <input
+                type="text"
+                name="productCategory"
+                placeholder="Nazwa Kategorii"
+                required
+        />
+
+        </div>
+      <button type="submit">Dodaj produkt</button>
+    </form>
+  </div>
+</div>
+<script src="../js/addProduct.js"></script>
+</body>
 </html>

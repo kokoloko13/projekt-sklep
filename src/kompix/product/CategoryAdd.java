@@ -14,10 +14,9 @@ import java.sql.Statement;
 
 @WebServlet("/CategoryAdd")
 public class CategoryAdd extends HttpServlet {
-    String category;
+    private String category;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        category=request.getParameter("category");
-
+        this.category=request.getParameter("productCategory");
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/dodaj-kategorie.html");
             PrintWriter out= response.getWriter();
         try {
@@ -27,7 +26,7 @@ public class CategoryAdd extends HttpServlet {
                     .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             Statement st = conn.createStatement();
 
-            st.executeUpdate("insert into categories(category_name)values('" + category + "')");
+            st.executeUpdate("insert into categories(category_name)values('" + this.category + "')");
             conn.close();
         } catch (Exception e) {
             System.out.print(e);

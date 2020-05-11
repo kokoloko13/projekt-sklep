@@ -1,5 +1,14 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String user_email = null;
+  Cookie[] cookies = request.getCookies();
+  if(cookies != null){
+    for(Cookie cookie : cookies){
+      if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
+    }
+  }
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,7 +62,11 @@
           </div>
           <div class="profile_cart">
             <div class="profile-signin">
-              <i class="fas fa-user"></i>
+              <a href="<% if(user_email == null){
+                out.print("/logowanie.jsp");
+              }else{
+                out.print("/konto.jsp");
+              }%>"><i class="fas fa-user"></i></a>
             </div>
             <div class="shopping_cart">
               <i class="fas fa-shopping-cart"

@@ -28,13 +28,10 @@
     <title>Sklep komputerowy Kompix | Dodawanie produktu</title>
   </head>
   <body>
-  <php>
-    echo "print";
-  </php>
     <div class="container">
       <!-- Add product -->
       <div class="add_product">
-        <form action="/AddProduct" method="post" enctype="multipart/form-data">
+        <form action="/ProductAdd" method="post" enctype="multipart/form-data">
           <div class="files_container">
             <div class="fileContainer big">
               <input type="file" name="file1" required />
@@ -71,18 +68,7 @@
               placeholder="Ilość"
               required
             />
-            <select>
-              <option>
-                <?php
-                  $c=mysql_connect('localhost','root','');
-                  echo "$c";
-                  mysql_select_db("shop",$c);
-                  $z=mysql_query("select * from categories")'
-                  while($r=mysql_fetch_row($z)){
-                  echo "<option value='".$r[1]."'>".$r[0]."</option>"
-              ?>
 
-            </select>
             <div class="productPrice_container">
               <input
                 type="text"

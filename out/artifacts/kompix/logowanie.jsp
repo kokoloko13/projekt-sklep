@@ -1,5 +1,18 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String user_email = null;
+  Cookie[] cookies = request.getCookies();
+  if(cookies != null){
+    for(Cookie cookie : cookies){
+      if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
+    }
+  }
+
+  if(user_email != null){
+    response.sendRedirect("/index.jsp");
+  }
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -121,8 +134,8 @@
       </nav>
 
       <!-- Login / Register -->
-      <div class="login_page">
-        <div class="login_page_login">
+      <div class="addproduct_page">
+        <div class="addproduct_add">
           <form action="/Login" method="post">
             <h2>Klient</h2>
             <div class="input">

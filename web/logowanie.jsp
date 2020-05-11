@@ -134,8 +134,8 @@
       </nav>
 
       <!-- Login / Register -->
-      <div class="login_page">
-        <div class="login_page_login">
+      <div class="addproduct_page">
+        <div class="addproduct_add">
           <form action="/Login" method="post">
             <h2>Klient</h2>
             <div class="input">

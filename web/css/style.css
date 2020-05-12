@@ -520,7 +520,7 @@
   html body .container .new_products {
     width: 100%;
   }
-  html body .container .login_page {
+  html body .container .addproduct_page {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -535,28 +535,28 @@
     -webkit-box-shadow: -2px 17px 31px -20px rgba(0, 0, 0, 0.75);
             box-shadow: -2px 17px 31px -20px rgba(0, 0, 0, 0.75);
   }
-  html body .container .login_page h2 {
+  html body .container .addproduct_page h2 {
     padding-bottom: 2rem;
     text-decoration: underline;
   }
-  html body .container .login_page .input {
+  html body .container .addproduct_page .input {
     padding: 0.3rem 0;
   }
-  html body .container .login_page .input p {
+  html body .container .addproduct_page .input p {
     padding: 0.5rem 0;
   }
-  html body .container .login_page .input input[type="email"],
-  html body .container .login_page .input input[type="password"] {
+  html body .container .addproduct_page .input input[type="email"],
+  html body .container .addproduct_page .input input[type="password"] {
     border: 1px solid;
     border-radius: 10px;
     height: 2rem;
     padding: 0 1rem;
     width: 80%;
   }
-  html body .container .login_page .checks {
+  html body .container .addproduct_page .checks {
     padding: 2rem 0;
   }
-  html body .container .login_page .checks label {
+  html body .container .addproduct_page .checks label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -569,27 +569,27 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  html body .container .login_page .checks label p {
+  html body .container .addproduct_page .checks label p {
     font-size: 1.1rem;
     padding-left: 0.5rem;
   }
-  html body .container .login_page .checks label p a {
+  html body .container .addproduct_page .checks label p a {
     color: #352acf;
   }
-  html body .container .login_page .checks label input[type="checkbox"] {
+  html body .container .addproduct_page .checks label input[type="checkbox"] {
     -webkit-transform: scale(1.5);
             transform: scale(1.5);
     margin-right: 0.5rem;
   }
-  html body .container .login_page .checks label input[type="checkbox"]:focus {
+  html body .container .addproduct_page .checks label input[type="checkbox"]:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  html body .container .login_page_login {
+  html body .container .addproduct_add {
     padding: 2rem 0;
     font-size: 1.2rem;
   }
-  html body .container .login_page_login button {
+  html body .container .addproduct_add button {
     border-color: #352acf;
     background: #352acf;
     color: #fff;
@@ -603,7 +603,7 @@
     background: none;
     color: #352acf;
   }
-  html body .container .login_page button {
+  html body .container .addproduct_page button {
     font-size: 1.2rem;
     padding: 0.5rem 2rem;
     border: 1px solid;
@@ -1646,7 +1646,7 @@
   body .container .new_products {
     width: 100%;
   }
-  body .container .login_page {
+  body .container .addproduct_page {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr auto 1fr;
@@ -1665,7 +1665,7 @@
     -webkit-box-shadow: -2px 17px 31px -20px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 17px 31px -20px rgba(0, 0, 0, 0.75);
   }
-  body .container .login_page .login_breaker {
+  body .container .addproduct_page .login_breaker {
     -ms-grid-column: 2;
     grid-column: 2;
     -ms-grid-row: 1;
@@ -1676,7 +1676,7 @@
     width: 100%;
     display: none;
   }
-  body .container .login_page .login_breaker .hr-text {
+  body .container .addproduct_page .login_breaker .hr-text {
     line-height: 1em;
     position: relative;
     outline: 0;
@@ -1687,7 +1687,7 @@
     font-size: 1.2rem;
     opacity: 1;
   }
-  body .container .login_page .login_breaker .hr-text:before {
+  body .container .addproduct_page .login_breaker .hr-text:before {
     content: "";
     background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#818078), to(transparent));
     background: linear-gradient(to right, transparent, #818078, transparent);
@@ -1697,7 +1697,7 @@
     width: 100%;
     height: 1px;
   }
-  body .container .login_page .login_breaker .hr-text:after {
+  body .container .addproduct_page .login_breaker .hr-text:after {
     content: attr(data-content);
     position: relative;
     display: inline-block;
@@ -1707,24 +1707,24 @@
     color: #818078;
     background-color: #fff;
   }
-  body .container .login_page .input {
+  body .container .addproduct_page .input {
     padding: 0.3rem 0;
   }
-  body .container .login_page .input p {
+  body .container .addproduct_page .input p {
     padding: 0.5rem 0;
   }
-  body .container .login_page .input input[type="email"],
-  body .container .login_page .input input[type="password"] {
+  body .container .addproduct_page .input input[type="email"],
+  body .container .addproduct_page .input input[type="password"] {
     border: 1px solid;
     border-radius: 10px;
     height: 2rem;
     padding: 0 1rem;
     width: 50%;
   }
-  body .container .login_page .checks {
+  body .container .addproduct_page .checks {
     padding: 2rem 0;
   }
-  body .container .login_page .checks label {
+  body .container .addproduct_page .checks label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1737,27 +1737,27 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  body .container .login_page .checks label p {
+  body .container .addproduct_page .checks label p {
     font-size: 1.1rem;
     padding-left: 0.5rem;
   }
-  body .container .login_page .checks label p a {
+  body .container .addproduct_page .checks label p a {
     color: #352acf;
   }
-  body .container .login_page .checks label input[type="checkbox"] {
+  body .container .addproduct_page .checks label input[type="checkbox"] {
     -webkit-transform: scale(1.5);
             transform: scale(1.5);
     margin-right: 0.5rem;
   }
-  body .container .login_page .checks label input[type="checkbox"]:focus {
+  body .container .addproduct_page .checks label input[type="checkbox"]:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  body .container .login_page h2 {
+  body .container .addproduct_page h2 {
     padding-bottom: 1rem;
     text-decoration: underline;
   }
-  body .container .login_page_login {
+  body .container .addproduct_add {
     -ms-grid-column: 1;
     grid-column: 1;
     -ms-grid-row: 1;
@@ -1767,7 +1767,7 @@
     width: 90%;
     border-right: 1px groove black;
   }
-  body .container .login_page_login button {
+  body .container .addproduct_add button {
     border-color: #352acf;
     background: #352acf;
     color: #fff;
@@ -1786,7 +1786,7 @@
     background: none;
     color: #352acf;
   }
-  body .container .login_page button {
+  body .container .addproduct_page button {
     font-size: 1.2rem;
     padding: 0.5rem 2rem;
     border: 1px solid;

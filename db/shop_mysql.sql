@@ -109,10 +109,10 @@ CREATE TABLE `products` (
   `price` decimal(10,2) NOT NULL,
   `product_desc` varchar(250) COLLATE utf8mb4_polish_ci NOT NULL,
   `id_category` int(11) NOT NULL,
-  `photo1` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL,
-  `photo2` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL,
-  `photo3` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL,
-  `photo4` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL
+  `photo1` mediumblob NOT NULL,
+  `photo2` mediumblob NOT NULL,
+  `photo3` mediumblob NOT NULL,
+  `photo4` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------

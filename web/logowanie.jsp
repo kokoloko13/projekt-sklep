@@ -1,5 +1,9 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%
   String user_email = null;
   Cookie[] cookies = request.getCookies();
@@ -8,7 +12,6 @@
       if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
     }
   }
-
   if(user_email != null){
     response.sendRedirect("/index.jsp");
   }
@@ -80,54 +83,23 @@
       <div class="nav_categories">
         <i class="fas fa-times nav_exit_mobile_menu"></i>
         <ul>
-          <li>
-            <a href="#">
-              <div class="nav_category_item">
-                <i class="fas fa-desktop"></i>
-                <p>Komputery stacjonarne</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="nav_category_item">
-                <i class="fas fa-mobile"></i>
-                <p>Telefony</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="nav_category_item">
-                <i class="fas fa-laptop"></i>
-                <p>Laptopy i tablety</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="nav_category_item">
-                <i class="fas fa-keyboard"></i>
-                <p>Urządzenia peryferyjne</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="nav_category_item">
-                <i class="fas fa-microchip"></i>
-                <p>Podzespoły komputerowe</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="nav_category_item">
-                <i class="fas fa-gamepad"></i>
-                <p>Gaming</p>
-              </div>
-            </a>
-          </li>
+          <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                             url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                             user="root"  password=""/>
+
+          <sql:query dataSource="${db}" var="rs">
+            SELECT * from categories;
+          </sql:query>
+          <c:forEach var="categories" items="${rs.rows}">
+            <li>
+              <a href="#">
+                <div class="nav_category_item">
+                  <i class="${categories.category_icon}"></i>
+                  <p>${categories.category_name}</p>
+                </div>
+              </a>
+            </li>
+          </c:forEach>
         </ul>
       </div>
     </div>

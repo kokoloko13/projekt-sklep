@@ -1,6 +1,10 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%
   String user_email = null;
   Cookie[] cookies = request.getCookies();
@@ -42,6 +46,13 @@
   <body>
     <div class="container">
       <!-- Navbar -->
+      <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                         url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                         user="root"  password=""/>
+
+      <sql:query dataSource="${db}" var="rs">
+        SELECT * from categories;
+      </sql:query>
       <nav>
         <div class="navbar">
           <div class="navbar_toggle">
@@ -70,62 +81,22 @@
               }%>"><i class="fas fa-user"></i></a>
             </div>
             <div class="shopping_cart">
-              <i class="fas fa-shopping-cart"
-                ><span class="cart_badge">0</span></i
-              >
+              <a href="/koszyk.jsp"><i class="fas fa-shopping-cart"><span class="cart_badge">0</span></i></a>
             </div>
           </div>
           <div class="nav_categories">
             <i class="fas fa-times nav_exit_mobile_menu"></i>
             <ul>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-desktop"></i>
-                    <p>Komputery stacjonarne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-mobile"></i>
-                    <p>Telefony</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-laptop"></i>
-                    <p>Laptopy i tablety</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-keyboard"></i>
-                    <p>Urządzenia peryferyjne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-microchip"></i>
-                    <p>Podzespoły komputerowe</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-gamepad"></i>
-                    <p>Gaming</p>
-                  </div>
-                </a>
-              </li>
+              <c:forEach var="categories" items="${rs.rows}">
+                <li>
+                  <a href="#">
+                    <div class="nav_category_item">
+                      <i class="${categories.category_icon}"></i>
+                      <p>${categories.category_name}</p>
+                    </div>
+                  </a>
+                </li>
+              </c:forEach>
             </ul>
           </div>
         </div>
@@ -149,16 +120,24 @@
         <div class="products">
           <i class="fas fa-chevron-left"></i>
 
-          <% for(int i=0; i < 5; i++){ %>
+          <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                             url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                             user="root"  password=""/>
+
+          <sql:query dataSource="${db}" var="prods">
+            SELECT * from products;
+          </sql:query>
+
+        <c:forEach var="product" items="${prods.rows}">
 
           <div class="product">
             <div class="product_thumb">
-              <img src="images/thumb.png" alt="Product Thumbnail" />
+              <img src="images/thumb.png" alt="${product.product_name} Thumbnail" />
             </div>
-            <div class="product_title"><a href="#">Macbook Pro 15"</a></div>
+            <div class="product_title"><a href="#">${product.product_name}</a></div>
             <div class="product_priceAndControl">
               <div class="product_price">
-                <span class="price">7399.00</span>
+                <span class="price">${product.price}</span>
                 <span class="currency">PLN</span>
               </div>
               <div class="product_control">
@@ -167,7 +146,7 @@
             </div>
           </div>
 
-          <% } %>
+          </c:forEach>
 
           <i class="fas fa-chevron-right"></i>
           <div class="showMore">
@@ -185,25 +164,25 @@
         <div class="products">
           <i class="fas fa-chevron-left"></i>
 
-          <% for(int i=0; i < 5; i++){ %>
+          <c:forEach var="product" items="${prods.rows}">
 
-          <div class="product">
-            <div class="product_thumb">
-              <img src="images/thumb.png" alt="Product Thumbnail" />
-            </div>
-            <div class="product_title"><a href="#">Macbook Pro 15"</a></div>
-            <div class="product_priceAndControl">
-              <div class="product_price">
-                <span class="price">7399.00</span>
-                <span class="currency">PLN</span>
+            <div class="product">
+              <div class="product_thumb">
+                <img src="images/thumb.png" alt="${product.product_name} Thumbnail" />
               </div>
-              <div class="product_control">
-                <i class="fas fa-cart-plus"></i>
+              <div class="product_title"><a href="#">${product.product_name}</a></div>
+              <div class="product_priceAndControl">
+                <div class="product_price">
+                  <span class="price">${product.price}</span>
+                  <span class="currency">PLN</span>
+                </div>
+                <div class="product_control">
+                  <i class="fas fa-cart-plus"></i>
+                </div>
               </div>
             </div>
-          </div>
 
-          <% } %>
+          </c:forEach>
 
           <i class="fas fa-chevron-right"></i>
           <div class="showMore">

@@ -1,6 +1,11 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <%
   String user_email = null;
   Cookie[] cookies = request.getCookies();
@@ -11,31 +16,7 @@
   }
   if(user_email == null){
     response.sendRedirect("logowanie.jsp");
-  }else{
-
-
-
-  String SELECT_USER_SQL = "SELECT * FROM users, address WHERE users.id_address = address.id_address AND user_email=?;";
-
-  try {
-    Class.forName("com.mysql.cj.jdbc.Driver");
-
-    Connection conn = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-
-    PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SQL);
-    preparedStatement.setString(1, user_email);
-
-
-    ResultSet rs = preparedStatement.executeQuery();
-
-    rs.next();
-    String first_name = user_email.substring(0, user_email.indexOf('@'));
-
-    if (!rs.getString("first_name").trim().equals("None")){
-      first_name = rs.getString("first_name");
-    }
-
+  }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +50,13 @@
   <body>
     <div class="container">
       <!-- Navbar -->
+      <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                         url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                         user="root"  password=""/>
+
+      <sql:query dataSource="${db}" var="data">
+        SELECT * FROM users, address WHERE user_email='<% out.print(user_email); %>';
+      </sql:query>
       <nav>
         <div class="navbar">
           <div class="navbar_toggle">
@@ -91,69 +79,48 @@
           <div class="profile_cart">
             <div class="profile-signed">
               <i class="fas fa-user"></i>
-              <p>Witaj, <br /><% out.print(first_name); %></p>
+              <c:forEach var="dataRow" items="${data.rows}">
+                <c:set var = "name" scope = "session" value = "${dataRow.user_email.substring(0, dataRow.user_email.indexOf('@'))}"/>
+                <c:choose>
+                  <c:when test="${name.equals('None')}">
+                    <p>Witaj, <br /><c:out value="${'name'}"/></p>
+                  </c:when>
+                  <c:when test="${!name.equals('None')}">
+                    <p>Witaj, <br /><c:out value="${dataRow.first_name}"/></p>
+                  </c:when>
+                </c:choose>
+              </c:forEach>
             </div>
             <div class="shopping_cart">
-              <i class="fas fa-shopping-cart"
-                ><span class="cart_badge">0</span></i
-              >
+              <a href="/koszyk.jsp"><i class="fas fa-shopping-cart"><span class="cart_badge">0</span></i></a>
             </div>
           </div>
           <div class="nav_categories">
             <i class="fas fa-times nav_exit_mobile_menu"></i>
             <ul>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-desktop"></i>
-                    <p>Komputery stacjonarne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-mobile"></i>
-                    <p>Telefony</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-laptop"></i>
-                    <p>Laptopy i tablety</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-keyboard"></i>
-                    <p>Urządzenia peryferyjne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-microchip"></i>
-                    <p>Podzespoły komputerowe</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-gamepad"></i>
-                    <p>Gaming</p>
-                  </div>
-                </a>
-              </li>
+              <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                                 url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                                 user="root"  password=""/>
+
+              <sql:query dataSource="${db}" var="rs">
+                SELECT * from categories;
+              </sql:query>
+              <c:forEach var="categories" items="${rs.rows}">
+                <li>
+                  <a href="#">
+                    <div class="nav_category_item">
+                      <i class="${categories.category_icon}"></i>
+                      <p>${categories.category_name}</p>
+                    </div>
+                  </a>
+                </li>
+              </c:forEach>
             </ul>
           </div>
         </div>
       </nav>
+
+
 
       <!-- Login / Register -->
       <div class="account">
@@ -179,33 +146,35 @@
             </li>
           </ul>
         </div>
+        <c:forEach var="dataRow" items="${data.rows}">
         <div class="account_content">
+
           <div class="account_content_personal_data" style="display: none;">
             <div class="account_content_personal_data_element">
               <h2>Imię i nazwisko:</h2>
-              <p><% out.print(rs.getString("first_name") + " " + rs.getString("last_name")); %></p>
+              <p>${dataRow.first_name} ${dataRow.last_name}</p>
             </div>
             <div class="account_content_personal_data_element">
               <h2>Adres / ulica:</h2>
-              <p><% out.print(rs.getString("street")); %></p>
+              <p>${dataRow.street}</p>
             </div>
             <div class="account_content_personal_data_element">
               <div>
                 <h2>Kod pocztowy:</h2>
-                <p><% out.print(rs.getString("zipcode")); %></p>
+                <p>${dataRow.zipcode}</p>
               </div>
               <div>
                 <h2>Miasto:</h2>
-                <p><% out.print(rs.getString("city")); %></p>
+                <p>${dataRow.city}</p>
               </div>
             </div>
             <div class="account_content_personal_data_element">
               <h2>Telefon kontaktowy:</h2>
-              <p><% out.print(rs.getString("user_phone")); %></p>
+              <p>${dataRow.user_phone}</p>
             </div>
             <div class="account_content_personal_data_element">
               <h2>Adres e-mail:</h2>
-              <p><% out.print(rs.getString("user_email")); %></p>
+              <p>${dataRow.user_email}</p>
             </div>
           </div>
           <div
@@ -215,31 +184,31 @@
             <form action="/ChangeData" method="post">
               <div class="input">
                 <p>Imię</p>
-                <input type="text" name="clientName" placeholder="<% out.print(rs.getString("first_name")); %>"/>
+                <input type="text" name="clientName" placeholder="${dataRow.first_name}"/>
               </div>
               <div class="input">
                 <p>Nazwisko</p>
-                <input type="text" name="clientLastname" placeholder="<% out.print(rs.getString("last_name")); %>"/>
+                <input type="text" name="clientLastname" placeholder="${dataRow.last_name}"/>
               </div>
               <div class="input">
                 <p>Adres / ulica</p>
-                <input type="text" name="clientStreet" placeholder="<% out.print(rs.getString("street")); %>"/>
+                <input type="text" name="clientStreet" placeholder="${dataRow.street}"/>
               </div>
               <div class="input_zip">
                 <p>Kod pocztowy:</p>
-                <input type="text" name="clientZip" placeholder="<% out.print(rs.getString("zipcode")); %>"/>
+                <input type="text" name="clientZip" placeholder="${dataRow.zipcode}"/>
               </div>
               <div class="input_city">
                 <p>Miasto</p>
-                <input type="text" name="clientCity" placeholder="<% out.print(rs.getString("city")); %>"/>
+                <input type="text" name="clientCity" placeholder="${dataRow.city}"/>
               </div>
               <div class="input">
                 <p>Telefon kontaktowy:</p>
-                <input type="tel" name="clientPhone" placeholder="<% out.print(rs.getString("user_phone")); %>"/>
+                <input type="tel" name="clientPhone" placeholder="${dataRow.user_phone}"/>
               </div>
               <div class="input">
                 <p>Adres e-mail:</p>
-                <input type="email" name="clientEmail" placeholder="<% out.print(rs.getString("user_email")); %>"/>
+                <input type="email" name="clientEmail" placeholder="${dataRow.user_email}"/>
               </div>
               <button type="submit">Zmień dane</button>
             </form>
@@ -274,8 +243,7 @@
               </div>
               <div class="account_content_orders_header_delivery-payment">
                 <p>
-                  Dostawa,<br />
-                  płatność
+                  Dostawa
                 </p>
               </div>
               <div class="account_content_orders_header_tracking">
@@ -289,74 +257,71 @@
               </div>
             </div>
             <div class="account_content_orders_list">
-              <%
-                String SELECT_USERORDERS_SQL = "SELECT * FROM orders, ship, vat, status WHERE user_mail=? "+
-                        "AND orders.id_ship = ship.id_ship AND orders.id_vat = vat.id_vat"+
-                        " AND orders.id_status = status.id_status";
+              <sql:setDataSource var="db2" driver="com.mysql.jdbc.Driver"
+                                 url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                                 user="root"  password=""/>
 
-                  Connection connOrders = DriverManager
-                          .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+              <sql:query dataSource="${db2}" var="rs2">
+                SELECT
+                *
+                FROM
+                orders AS o
+                INNER JOIN
+                users AS u
+                ON
+                o.id_user = u.id_user
+                INNER JOIN
+                ship AS s
+                ON
+                o.id_ship = s.id_ship
+                INNER JOIN
+                status AS st
+                ON o.order_status = st.id_status
+                WHERE
+                u.user_email = '<% out.print(user_email); %>';
+              </sql:query>
 
-                  PreparedStatement ordersPrepStatement = conn.prepareStatement(SELECT_USERORDERS_SQL);
-                  preparedStatement.setString(1, user_email);
-
-
-                  ResultSet orders = ordersPrepStatement.executeQuery();
-
-                if (!orders.next() ) {
-                  System.out.println("no data");
-                } else {
-                  do{
-              %>
-
-                      <div class="account_content_orders_list_order">
-                <div class="account_content_orders_list_order_header">
-                  <p class="header">Numer<br />zamówienia</p>
-                  <p><% out.print(orders.getTimestamp("order_num")); %></p>
-                  <i class="fas fa-chevron-down"></i>
+              <c:forEach var="orders" items="${rs2.rows}">
+                <div class="account_content_orders_list_order">
+                  <div class="account_content_orders_list_order_header">
+                    <p class="header">Numer<br />zamówienia</p>
+                    <p>${orders.order_num}</p>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="account_content_orders_list_order_element">
+                    <p class="header">Data<br />zamówienia</p>
+                    <c:set var = "orderDate" scope = "session" value = "${orders.order_date.toString().substring(0, 10)}"/>
+                    <p>${orderDate}</p>
+                  </div>
+                  <div class="account_content_orders_list_order_element">
+                    <p class="header">Status</p>
+                    <p>${orders.status_name}</p>
+                  </div>
+                  <div class="account_content_orders_list_order_element">
+                    <p class="header">Dostawa</p>
+                    <p>${orders.ship_method_long}</p>
+                  </div>
+                  <div class="account_content_orders_list_order_element">
+                    <p class="header">Śledzenie</p>
+                    <p><a href="${orders.tracking}"><i class="fas fa-search-location"></i></a></p>
+                  </div>
+                  <div class="account_content_orders_list_order_element">
+                    <p class="header">Wartość</p>
+                    <p>
+                      <span class="price">${orders.total_price}</span>
+                      <span class="currency">PLN</span>
+                    </p>
+                  </div>
+                  <div class="account_content_orders_list_order_element">
+                    <p class="header">Faktura</p>
+                    <p><a href="${orders.vat}"><i class="fas fa-file-invoice-dollar"></i></a></p>
+                  </div>
                 </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Data<br />zamówienia</p>
-                  <p><% out.print(orders.getTimestamp("order_date")); %></p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Status</p>
-                  <p><% out.print(orders.getTimestamp("status_name")); %></p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Dostawa,<br />płatność</p>
-                  <p><% out.print(orders.getTimestamp("ship_name")); %></p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Śledzenie</p>
-                  <p><a href="<% out.print(orders.getTimestamp("tracking")); %>"><i class="fas fa-search-location"></i></a></p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Wartość</p>
-                  <p>
-                    <span class="price"><% out.print(orders.getTimestamp("total_price")); %></span>
-                    <span class="currency">PLN</span>
-                  </p>
-                </div>
-                <div class="account_content_orders_list_order_element">
-                  <p class="header">Faktura</p>
-                  <p><a href="<% out.print(orders.getTimestamp("vat")); %>"><i class="fas fa-file-invoice-dollar"></i></a></p>
-                </div>
-              </div>
-
-              <%
-                  }while(orders.next());
-                    }
-                  conn.close();
-                  connOrders.close();
-                }catch(SQLException e){
-                  e.printStackTrace();
-                }
-                }%>
-
+              </c:forEach>
             </div>
           </div>
         </div>
+        </c:forEach>
       </div>
 
       <!-- Footer -->

@@ -5,6 +5,7 @@ let cartList = document.getElementsByClassName("product_list")[0];
 let trashIcons = document.getElementsByClassName("fa-trash-alt");
 let minuses = document.getElementsByClassName("fa-minus-square");
 let pluses = document.getElementsByClassName("fa-plus-square");
+let checkoutButton = document.querySelector(".checkoutButton > p");
 
 function localStorageTest() {
   const test = "test" + new Date().valueOf();
@@ -193,10 +194,15 @@ for (plus of pluses) {
     let price =
       event.target.parentElement.nextElementSibling.children[0].children[0];
     let priceValue = parseFloat(price.dataset.value).toFixed(2);
+    let productId = event.target.parentElement.parentElement.getAttribute("product-id");
 
     if (qtyValue < 9) {
       qtyValue++;
       qty.innerHTML = qtyValue;
+      let product = JSON.parse(localStorage.getItem(productId));
+      product.qty++;
+      product.finalPrice = product.singlePrice * product.qty;
+      localStorage.setItem(productId, JSON.stringify(product));
     } else {
       qtyValue = 9;
       qty.innerHTML = qtyValue;
@@ -215,10 +221,15 @@ for (minus of minuses) {
     let price =
       event.target.parentElement.nextElementSibling.children[0].children[0];
     let priceValue = parseFloat(price.dataset.value).toFixed(2);
+  let productId = event.target.parentElement.parentElement.getAttribute("product-id");
 
     if (qtyValue > 1) {
       qtyValue--;
       qty.innerHTML = qtyValue;
+      let product = JSON.parse(localStorage.getItem(productId));
+      product.qty--;
+      product.finalPrice = product.singlePrice * product.qty;
+      localStorage.setItem(productId, JSON.stringify(product));
     } else {
       qtyValue = 1;
       qty.innerHTML = qtyValue;
@@ -247,3 +258,43 @@ for (trashIcon of trashIcons) {
     }
   });
 }
+
+checkoutButton.addEventListener("click", () => {
+  let order = [];
+
+  for(let i=0; i < localStorage.length; i++){
+    order.push(localStorage.getItem("koszyk_"+i));
+  }
+
+  cookieName = 'user_email';
+  ship = document.getElementById("delivery").value;
+  total = document.getElementsByClassName("cart_summary_cost_value")[0].textContent;
+
+  var match = document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
+  if (match) {
+    cookieValue= match[2];
+  }
+  else{
+    console.log('--something went wrong---');
+  }
+
+  console.log(total);
+
+  $.ajax({
+    url: '/Checkout',
+    type: 'POST',
+    dataType: 'application/json',
+    data: {
+      objarray: JSON.stringify(order),
+      user_email: cookieValue,
+      ship_method: JSON.stringify(ship),
+      priceAmount: JSON.stringify(total)
+    },
+    success: function(result) {
+      alert('SUCCESS');
+    }
+  });
+
+localStorage.clear();
+
+});

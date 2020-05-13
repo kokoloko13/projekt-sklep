@@ -1,5 +1,9 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%
   String user_email = null;
   Cookie[] cookies = request.getCookies();
@@ -8,298 +12,266 @@
       if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
     }
   }
-
   if(user_email != null){
     response.sendRedirect("/index.jsp");
   }
 %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <!-- Animate css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    />
-    <!-- Style -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Title -->
-    <title>Sklep komputerowy Kompix | Logowanie</title>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Navbar -->
-      <nav>
-        <div class="navbar">
-          <div class="navbar_toggle">
-            <i class="fas fa-bars"></i>
-          </div>
-          <div class="logo">
-            <a href="index.jsp"><p>Kompix</p></a>
-          </div>
-          <div class="search">
-            <form action="/Search" class="searchForm" method="GET">
-              <input
-                type="text"
-                name="search"
-                id="searchField"
-                placeholder="Czego szukasz?"
-              />
-              <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-          </div>
-          <div class="profile_cart">
-            <div
-              class="profile-signin"
-              style="opacity: 0.2; pointer-events: none;"
-            >
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="shopping_cart">
-              <i class="fas fa-shopping-cart"
-                ><span class="cart_badge">0</span></i
-              >
-            </div>
-          </div>
-          <div class="nav_categories">
-            <i class="fas fa-times nav_exit_mobile_menu"></i>
-            <ul>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-desktop"></i>
-                    <p>Komputery stacjonarne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-mobile"></i>
-                    <p>Telefony</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-laptop"></i>
-                    <p>Laptopy i tablety</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-keyboard"></i>
-                    <p>Urządzenia peryferyjne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-microchip"></i>
-                    <p>Podzespoły komputerowe</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-gamepad"></i>
-                    <p>Gaming</p>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts -->
+  <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet"
+  />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap"
+          rel="stylesheet"
+  />
+  <!-- Fontawesome -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  />
+  <!-- Animate css -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+  />
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Title -->
+  <title>Sklep komputerowy Kompix | Logowanie</title>
+</head>
+<body>
+<div class="container">
+  <!-- Navbar -->
+  <nav>
+    <div class="navbar">
+      <div class="navbar_toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="logo">
+        <a href="index.jsp"><p>Kompix</p></a>
+      </div>
+      <div class="search">
+        <form action="/Search" class="searchForm" method="GET">
+          <input
+                  type="text"
+                  name="search"
+                  id="searchField"
+                  placeholder="Czego szukasz?"
+          />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <div class="profile_cart">
+        <div
+                class="profile-signin"
+                style="opacity: 0.2; pointer-events: none;"
+        >
+          <i class="fas fa-user"></i>
         </div>
-      </nav>
+        <div class="shopping_cart">
+          <i class="fas fa-shopping-cart"
+          ><span class="cart_badge">0</span></i
+          >
+        </div>
+      </div>
+      <div class="nav_categories">
+        <i class="fas fa-times nav_exit_mobile_menu"></i>
+        <ul>
+          <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                             url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                             user="root"  password=""/>
 
-      <!-- Login / Register -->
-      <div class="addproduct_page">
-        <div class="addproduct_add">
-          <form action="/Login" method="post">
-            <h2>Klient</h2>
-            <div class="input">
-              <p>Adres E-mail</p>
-              <input
-                type="email"
-                name="login"
-                required
-                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                oninput="this.setCustomValidity('')"
-              />
-            </div>
-            <div class="input">
-              <p>Hasło</p>
-              <input
-                type="password"
-                name="passwd"
-                required
-                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                oninput="this.setCustomValidity('')"
-              />
-            </div>
-            <div class="checks">
-              <label>
-                <input type="checkbox" name="stayLogged" />
-                <p>
-                  Nie wylogowuj mnie.
-                </p>
-              </label>
-            </div>
-            <button type="submit">Zaloguj się</button>
-          </form>
-        </div>
-        <div class="login_breaker">
-          <hr class="hr-text" data-content="Nie masz konta?" />
-        </div>
-        <div class="login_page_register">
-          <form action="/Register" method="post">
-            <h2>Zostań klientem</h2>
-            <div class="input">
-              <p>Adres E-mail</p>
-              <input
-                type="email"
-                name="login"
-                required
-                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                oninput="this.setCustomValidity('')"
-              />
-            </div>
-            <div class="input">
-              <p>Hasło</p>
-              <input
-                type="password"
-                name="passwd"
-                required
-                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                oninput="this.setCustomValidity('')"
-              />
-            </div>
-            <div class="input">
-              <p>Powtórz hasło</p>
-              <input
-                type="password"
-                name="passwordAgain"
-                required
-                oninvalid="this.setCustomValidity('To pole jest wymagane!')"
-                oninput="this.setCustomValidity('')"
-              />
-            </div>
-            <div class="checks">
-              <label>
-                <input
-                  type="checkbox"
-                  name="rulesAccepted"
-                  value="True"
+          <sql:query dataSource="${db}" var="rs">
+            SELECT * from categories;
+          </sql:query>
+          <c:forEach var="categories" items="${rs.rows}">
+            <li>
+              <a href="#">
+                <div class="nav_category_item">
+                  <i class="${categories.category_icon}"></i>
+                  <p>${categories.category_name}</p>
+                </div>
+              </a>
+            </li>
+          </c:forEach>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login / Register -->
+  <div class="login_page">
+    <div class="login_page_login">
+      <form action="/Login" method="post">
+        <h2>Klient</h2>
+        <div class="input">
+          <p>Adres E-mail</p>
+          <input
+                  type="email"
+                  name="login"
                   required
                   oninvalid="this.setCustomValidity('To pole jest wymagane!')"
                   oninput="this.setCustomValidity('')"
-                />
-                <p>
-                  Akceptuje
-                  <a href="#">regulamin</a> sklepu.
-                </p>
-              </label>
-              <label>
-                <input type="checkbox" name="newsletterAccepted" value="True"/>
-                <p>
-                  Chcę otrzymywać newsletter.
-                </p>
-              </label>
-            </div>
-            <button type="submit">Załóż konto</button>
-          </form>
+          />
+        </div>
+        <div class="input">
+          <p>Hasło</p>
+          <input
+                  type="password"
+                  name="passwd"
+                  required
+                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                  oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="checks">
+          <label>
+            <input type="checkbox" name="stayLogged" />
+            <p>
+              Nie wylogowuj mnie.
+            </p>
+          </label>
+        </div>
+        <button type="submit">Zaloguj się</button>
+      </form>
+    </div>
+    <div class="login_breaker">
+      <hr class="hr-text" data-content="Nie masz konta?" />
+    </div>
+    <div class="login_page_register">
+      <form action="/Register" method="post">
+        <h2>Zostań klientem</h2>
+        <div class="input">
+          <p>Adres E-mail</p>
+          <input
+                  type="email"
+                  name="login"
+                  required
+                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                  oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="input">
+          <p>Hasło</p>
+          <input
+                  type="password"
+                  name="passwd"
+                  required
+                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                  oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="input">
+          <p>Powtórz hasło</p>
+          <input
+                  type="password"
+                  name="passwordAgain"
+                  required
+                  oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                  oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="checks">
+          <label>
+            <input
+                    type="checkbox"
+                    name="rulesAccepted"
+                    value="True"
+                    required
+                    oninvalid="this.setCustomValidity('To pole jest wymagane!')"
+                    oninput="this.setCustomValidity('')"
+            />
+            <p>
+              Akceptuje
+              <a href="#">regulamin</a> sklepu.
+            </p>
+          </label>
+          <label>
+            <input type="checkbox" name="newsletterAccepted" value="True"/>
+            <p>
+              Chcę otrzymywać newsletter.
+            </p>
+          </label>
+        </div>
+        <button type="submit">Załóż konto</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer">
+      <div class="footer_links">
+        <div class="footer_links_element">
+          <p>Zamówienia</p>
+          <ul>
+            <li><a href="#">Dostawa</a></li>
+            <li><a href="#">Płatności</a></li>
+            <li><a href="#">Ubezpieczenia</a></li>
+            <li><a href="#">Zwroty i reklamacje</a></li>
+            <li><a href="#">Najczęsciej zadawane pytania</a></li>
+          </ul>
+        </div>
+        <div class="footer_links_element">
+          <p>Kompix</p>
+          <ul>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Regulamin</a></li>
+            <li><a href="#">Polityka prywatności</a></li>
+            <li><a href="#">Kariera</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer_links_element">
+          <p>Kontakt</p>
+          <ul>
+            <li>
+              <div class="footer_links_element_item">
+                <i class="fas fa-phone-alt"></i>
+                <p><a href="tel:+48123456789">123 456 789</a></p>
+              </div>
+            </li>
+            <li>
+              <div class="footer_links_element_hours">
+                <p>pon. - pt. 8:00 - 21:00</p>
+                <p>sob. - nd. 8:00 - 19:00</p>
+              </div>
+            </li>
+            <li>
+              <div class="footer_links_element_item">
+                <i class="fas fa-envelope"></i>
+                <p><a href="#">biuro@kompix.pl</a></p>
+              </div>
+            </li>
+            <li>
+              <div class="footer_links_element_social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <!-- Footer -->
-      <footer>
-        <div class="footer">
-          <div class="footer_links">
-            <div class="footer_links_element">
-              <p>Zamówienia</p>
-              <ul>
-                <li><a href="#">Dostawa</a></li>
-                <li><a href="#">Płatności</a></li>
-                <li><a href="#">Ubezpieczenia</a></li>
-                <li><a href="#">Zwroty i reklamacje</a></li>
-                <li><a href="#">Najczęsciej zadawane pytania</a></li>
-              </ul>
-            </div>
-            <div class="footer_links_element">
-              <p>Kompix</p>
-              <ul>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Regulamin</a></li>
-                <li><a href="#">Polityka prywatności</a></li>
-                <li><a href="#">Kariera</a></li>
-                <li><a href="#">Kontakt</a></li>
-              </ul>
-            </div>
-            <div class="footer_links_element">
-              <p>Kontakt</p>
-              <ul>
-                <li>
-                  <div class="footer_links_element_item">
-                    <i class="fas fa-phone-alt"></i>
-                    <p><a href="tel:+48123456789">123 456 789</a></p>
-                  </div>
-                </li>
-                <li>
-                  <div class="footer_links_element_hours">
-                    <p>pon. - pt. 8:00 - 21:00</p>
-                    <p>sob. - nd. 8:00 - 19:00</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="footer_links_element_item">
-                    <i class="fas fa-envelope"></i>
-                    <p><a href="#">biuro@kompix.pl</a></p>
-                  </div>
-                </li>
-                <li>
-                  <div class="footer_links_element_social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer_rights">
-            <p>
-              Kompix &copy;<%
-               int year = Calendar.getInstance().get(Calendar.YEAR);
-                  out.print((year == 2020) ? "2020" : "2020-"+year);
-                %>.
-              Wszelkie prawa zastrzeżone.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <div class="footer_rights">
+        <p>
+          Kompix &copy;<%
+          int year = Calendar.getInstance().get(Calendar.YEAR);
+          out.print((year == 2020) ? "2020" : "2020-"+year);
+        %>.
+          Wszelkie prawa zastrzeżone.
+        </p>
+      </div>
     </div>
-    <script src="js/animate.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+  </footer>
+</div>
+<script src="js/animate.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>

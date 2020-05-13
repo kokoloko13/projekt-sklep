@@ -1,5 +1,9 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%
   String user_email = null;
   Cookie[] cookies = request.getCookies();
@@ -150,11 +154,20 @@
               </form>
             </div>
             <div class="cartDelivery">
+
+              <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                                 url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                                 user="root"  password=""/>
+
+              <sql:query dataSource="${db}" var="rs">
+                SELECT * from ship;
+              </sql:query>
+
               <p>Sposób dostawy:</p>
               <select name="delivery" id="delivery">
-                <option value="DPD" selected>Kurier DPD | 15PLN</option>
-                <option value="DHL"> Kurier DHL | 15PLN</option>
-                <option value="inpost">Inpost, Paczkomaty 24/7 | 10PLN</option>
+                <c:forEach var="ship" items="${rs.rows}">
+                  <option value="${ship.ship_method_short}">${ship.ship_method_long} | ${ship.ship_price}PLN</option>
+                </c:forEach>
               </select>
             </div>
             <hr />
@@ -275,6 +288,7 @@
         </div>
       </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/animate.js"></script>
     <script src="js/script.js"></script>
     <script src="js/cart.js"></script>

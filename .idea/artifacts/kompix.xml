@@ -9,6 +9,9 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql-connector-java-8.0.19" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
+          <element id="file-copy" path="$PROJECT_DIR$/../gson-2.8.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../json-simple-1.1.1.jar" />
         </element>
       </element>
     </root>

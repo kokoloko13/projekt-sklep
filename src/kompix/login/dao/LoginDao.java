@@ -9,7 +9,7 @@ public class LoginDao {
     private CipherKompix aes = new CipherKompix();
 
     public boolean loginUser(LoginData loginData){
-        String SELECT_USER_SQL = "SELECT user_passwd FROM users WHERE user_email=?;";
+        String SELECT_USER_SQL = "SELECT * FROM users WHERE user_email=? AND user_passwd=?;";
 
 
         try {
@@ -20,6 +20,7 @@ public class LoginDao {
 
             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SQL);
             preparedStatement.setString(1, loginData.getEmail());
+            preparedStatement.setString(2, aes.encrypt(loginData.getPasswd()));
 
 
             System.out.println(preparedStatement);
@@ -28,11 +29,7 @@ public class LoginDao {
 
 
             if(rs.next() != false){
-                String pass = rs.getString("user_passwd");
-                String passwdDecoded = aes.decrypt(pass);
-
-                if(passwdDecoded == loginData.getPasswd())
-                    conn.close();
+                conn.close();
                 return true;
             }else{
                 conn.close();

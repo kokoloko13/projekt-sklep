@@ -210,6 +210,10 @@
     width: 95%;
     padding-bottom: 1rem;
   }
+  html body .container .navbar .profile_cart a {
+    text-decoration: none;
+    color: black;
+  }
   html body .container .navbar .profile_cart .profile-signin,
   html body .container .navbar .profile_cart .profile-signed {
     padding-right: 3rem;
@@ -1354,6 +1358,10 @@
     padding: 0;
     margin: 0;
   }
+  html body .container .navbar .profile_cart a {
+    text-decoration: none;
+    color: black;
+  }
   body .container .navbar .profile_cart .profile-signin,
   body .container .navbar .profile_cart .profile-signed {
     display: -webkit-box;
@@ -2022,6 +2030,10 @@
             align-items: center;
     font-size: 1rem;
     padding: 0.5rem 0;
+  }
+  body .container .account_content_orders_list_order a {
+    text-decoration: none;
+    color: black;
   }
   body .container .account_content_orders_list_order p {
     font-size: 0.9rem;

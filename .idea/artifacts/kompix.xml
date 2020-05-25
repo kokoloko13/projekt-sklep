@@ -8,10 +8,16 @@
           <element id="module-output" name="projekt-sklep" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="mysql-connector-java-8.0.19" />
-          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
           <element id="file-copy" path="$PROJECT_DIR$/../gson-2.8.6.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../json-simple-1.1.1.jar" />
+          <element id="library" level="application" name="gson-2.8.6" />
+          <element id="library" level="application" name="json-simple-1.1.1" />
+          <element id="library" level="application" name="jstl-1.2" />
+          <element id="library" level="application" name="mysql-connector-java-8.0.19" />
+          <element id="library" level="project" name="gson-2.8.6" />
+          <element id="library" level="project" name="json-simple-1.1.1" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.19" />
         </element>
       </element>
     </root>

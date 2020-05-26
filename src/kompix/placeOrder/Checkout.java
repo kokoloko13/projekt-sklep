@@ -1,6 +1,7 @@
 package kompix.placeOrder;
 
 import com.google.gson.Gson;
+import kompix.GenerateOrderPDF.GeneratePDF;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,9 +17,16 @@ import java.io.IOException;
 public class Checkout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String ordersPdfPath = getServletContext().getRealPath("/ordersPDF/");
+
         JSONParser parser = new JSONParser();
 
         try {
+            System.out.println("ObjArray: "+parser.parse(request.getParameter("objarray")).toString() + "\n");
+            System.out.println("email: "+parser.parse(request.getParameter("user_email")).toString() + "\n");
+            System.out.println("ship: "+parser.parse(request.getParameter("ship_method")).toString() + "\n");
+            System.out.println("price: "+parser.parse(request.getParameter("priceAmount")).toString() + "\n");
+
             Object s = parser.parse(request.getParameter("objarray"));
             JSONArray array = (JSONArray)s;
             Object email = parser.parse(request.getParameter("user_email"));
@@ -46,6 +54,8 @@ public class Checkout extends HttpServlet {
                 check.createOrderProducts(ord, orderID, prodID);
             }
 
+            GeneratePDF genPDF = new GeneratePDF(orderID, ordersPdfPath);
+            genPDF.gen();
 
         } catch (ParseException e) {
             e.printStackTrace();

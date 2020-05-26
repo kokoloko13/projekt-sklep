@@ -18,6 +18,8 @@
           <element id="library" level="project" name="json-simple-1.1.1" />
           <element id="library" level="project" name="jstl-1.2" />
           <element id="library" level="project" name="mysql-connector-java-8.0.19" />
+          <element id="library" level="application" name="com.itextpdf:html2pdf:3.0.0" />
+          <element id="library" level="application" name="itextpdf-5.5.13.1" />
         </element>
       </element>
     </root>

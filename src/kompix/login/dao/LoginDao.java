@@ -22,7 +22,6 @@ public class LoginDao {
             preparedStatement.setString(1, loginData.getEmail());
             preparedStatement.setString(2, aes.encrypt(loginData.getPasswd()));
 
-
             System.out.println(preparedStatement);
 
             ResultSet rs = preparedStatement.executeQuery();

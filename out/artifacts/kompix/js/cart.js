@@ -263,16 +263,21 @@ checkoutButton.addEventListener("click", () => {
   let order = [];
 
   for(let i=0; i < localStorage.length; i++){
-    order.push(localStorage.getItem("koszyk_"+i));
+
+    if(localStorage.getItem("koszyk_"+i) !== null){
+      order.push(localStorage.getItem("koszyk_"+i));
+    }else{
+      i++;
+    }
   }
 
-  cookieName = 'user_email';
-  ship = document.getElementById("delivery").value;
-  total = document.getElementsByClassName("cart_summary_cost_value")[0].textContent;
+  let cookieName = 'user_email';
+  let ship = document.getElementById("delivery").value;
+  let total = document.getElementsByClassName("cart_summary_cost_value")[0].textContent;
 
   var match = document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
   if (match) {
-    cookieValue= match[2];
+   cookieValue= match[2];
   }
   else{
     console.log('--something went wrong---');
@@ -286,7 +291,7 @@ checkoutButton.addEventListener("click", () => {
     dataType: 'application/json',
     data: {
       objarray: JSON.stringify(order),
-      user_email: cookieValue,
+      user_email: JSON.stringify(cookieValue),
       ship_method: JSON.stringify(ship),
       priceAmount: JSON.stringify(total)
     },

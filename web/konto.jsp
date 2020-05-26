@@ -277,6 +277,9 @@
                 INNER JOIN
                 status AS st
                 ON o.order_status = st.id_status
+                INNER JOIN
+                vat AS v
+                ON o.id_vat = v.id_vat
                 WHERE
                 u.user_email = '<% out.print(user_email); %>';
               </sql:query>
@@ -314,7 +317,7 @@
                   </div>
                   <div class="account_content_orders_list_order_element">
                     <p class="header">Faktura</p>
-                    <p><a href="${orders.vat}"><i class="fas fa-file-invoice-dollar"></i></a></p>
+                    <p><a href="${orders.vat}" target="_blank"><i class="fas fa-file-invoice-dollar"></i></a></p>
                   </div>
                 </div>
               </c:forEach>

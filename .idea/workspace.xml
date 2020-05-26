@@ -38,42 +38,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kompix/imageLoader/asd.java">
+        <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/Checkout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kompix/login/controller/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kompix/login/dao/LoginDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="43" column="5" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="43" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="27" column="87" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+        <entry file="file://$PROJECT_DIR$/src/kompix/GenerateOrderPDF/GeneratePDF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="169" column="102" selection-start-line="169" selection-start-column="102" selection-end-line="169" selection-end-column="102" />
+            <state relative-caret-position="482">
+              <caret line="73" column="241" selection-start-line="73" selection-start-column="241" selection-end-line="73" selection-end-column="241" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/konto.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="324" column="16" lean-forward="true" selection-start-line="324" selection-start-column="16" selection-end-line="324" selection-end-column="16" />
               <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" />
                 <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -82,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/cart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2448">
-              <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
+            <state relative-caret-position="567">
+              <caret line="290" column="33" lean-forward="true" selection-start-line="290" selection-start-column="33" selection-end-line="290" selection-end-column="33" />
               <folding>
                 <element signature="n#!!block;n#localStorageTest#0" />
                 <element signature="n#!!block;n#fillCart#0" />
@@ -92,7 +85,26 @@
                 <element signature="n#!!block;n#setCartCounter#0" />
                 <element signature="n#!!block;n#setFinalCartCost#0" />
                 <element signature="n#!!block;n#emptyAlertCart#0" />
+                <element signature="e#8087#8532#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/addCart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="33" selection-start-line="33" selection-end-line="38" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="142" column="48" lean-forward="true" selection-start-line="142" selection-start-column="48" selection-end-line="142" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -131,7 +143,6 @@
       <list>
         <option value="$PROJECT_DIR$/web/logowanie.jsp" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/web/konto.jsp" />
         <option value="$PROJECT_DIR$/web/koszyk.jsp" />
         <option value="$PROJECT_DIR$/src/kompix/Checkout/Model/Order.java" />
         <option value="$PROJECT_DIR$/src/kompix/Checkout/Controller/Checkout.java" />
@@ -140,16 +151,20 @@
         <option value="$PROJECT_DIR$/web/test.jsp" />
         <option value="$PROJECT_DIR$/src/kompix/checkout/Checkout.java" />
         <option value="$PROJECT_DIR$/src/kompix/placeOrder/Order.java" />
-        <option value="$PROJECT_DIR$/src/kompix/login/dao/LoginDao.java" />
         <option value="$PROJECT_DIR$/src/kompix/placeOrder/IDs.java" />
-        <option value="$PROJECT_DIR$/src/kompix/placeOrder/Checkout.java" />
         <option value="$PROJECT_DIR$/src/kompix/placeOrder/CheckoutDao.java" />
         <option value="$PROJECT_DIR$/src/kompix/product/ProductAdd.java" />
-        <option value="$PROJECT_DIR$/web/js/cart.js" />
         <option value="$PROJECT_DIR$/src/kompix/product/CategoryAdd.java" />
         <option value="$PROJECT_DIR$/src/kompix/imageLoader/dao/loadImageDao.java" />
         <option value="$PROJECT_DIR$/src/kompix/imageLoader/controller/loadImage.java" />
+        <option value="$PROJECT_DIR$/src/kompix/GeneratePDF/dao/GeneratePDFDao.java" />
+        <option value="$PROJECT_DIR$/src/kompix/login/dao/LoginDao.java" />
+        <option value="$PROJECT_DIR$/src/kompix/login/controller/Login.java" />
+        <option value="$PROJECT_DIR$/src/kompix/placeOrder/Checkout.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/js/cart.js" />
+        <option value="$PROJECT_DIR$/web/konto.jsp" />
+        <option value="$PROJECT_DIR$/src/kompix/GenerateOrderPDF/GeneratePDF.java" />
       </list>
     </option>
   </component>
@@ -210,21 +225,6 @@
               <item name="projekt-sklep" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="kompix" type="462c0819:PsiDirectoryNode" />
-              <item name="imageLoader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekt-sklep" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekt-sklep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="kompix" type="462c0819:PsiDirectoryNode" />
-              <item name="imageLoader" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekt-sklep" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekt-sklep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="kompix" type="462c0819:PsiDirectoryNode" />
               <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,7 +248,22 @@
               <item name="projekt-sklep" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="kompix" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
+              <item name="placeOrder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projekt-sklep" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projekt-sklep" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="kompix" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAddress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projekt-sklep" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projekt-sklep" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="kompix" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAddress" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projekt-sklep" type="b2602c69:ProjectViewProjectNode" />
@@ -272,14 +287,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Downloaded.Files.Path" value="C:\Users\Dell\Desktop\projekt-sklep\libs" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/mysql-connector-java-8.0.19.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/itextpdf-5.5.13.1.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -441,7 +457,7 @@
       <workItem from="1589354053776" duration="738000" />
       <workItem from="1590408433259" duration="869000" />
       <workItem from="1590409357527" duration="1376000" />
-      <workItem from="1590412045232" duration="2236000" />
+      <workItem from="1590412045232" duration="17920000" />
     </task>
     <task id="LOCAL-00001" summary="model addproduct">
       <created>1589138385738</created>
@@ -475,10 +491,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43703000" />
+    <option name="totallyTimeSpent" value="59387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Image Layers" order="1" />
@@ -488,7 +505,7 @@
       <window_info id="Learn" order="5" weight="0.32928804" />
       <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4942717" visible="true" weight="0.14886731" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info id="Web" order="8" sideWeight="0.5057283" side_tool="true" weight="0.13918306" />
+      <window_info id="Web" order="8" sideWeight="0.5057283" side_tool="true" weight="0.13915858" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3298731" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3298731" />
@@ -512,49 +529,11 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info active="true" anchor="right" x="25" y="253" width="1322" height="201" id="Run" order="9" side_tool="true" visible="true" weight="0.3462783" />
-      <window_info anchor="right" id="Messages" order="10" side_tool="true" weight="0.31164902" />
+      <window_info active="true" anchor="right" x="25" y="253" width="1322" height="201" id="Run" order="9" side_tool="true" visible="true" weight="0.3090615" />
+      <window_info anchor="right" id="Messages" order="10" side_tool="true" weight="0.3114887" />
       <window_info anchor="right" id="Flutter Inspector" order="11" />
       <window_info anchor="right" id="Flutter Outline" order="12" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Web" order="0" side_tool="true" />
-      <window_info id="Designer" order="1" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Learn" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.2669903" />
-      <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.3298731" />
-      <window_info anchor="bottom" id="Java Enterprise" order="1" weight="0.3298731" />
-      <window_info anchor="bottom" id="Flutter Performance" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3298731" />
-      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Message" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="right" id="Flutter Outline" order="0" />
-      <window_info anchor="right" id="Flutter Inspector" order="1" />
-      <window_info anchor="right" id="Maven" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
-      <window_info anchor="right" x="25" y="253" width="1322" height="201" id="Run" order="11" side_tool="true" weight="0.16262136" />
-      <window_info anchor="right" id="Messages" order="12" side_tool="true" weight="0.31260228" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -599,95 +578,57 @@
     <option name="LAST_COMMIT_MESSAGE" value="add products" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="657" y="105" width="619" height="829" key="#Tomcat_7.0.100" timestamp="1588583633303">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="657" y="105" width="619" height="829" key="#Tomcat_7.0.100/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588583633303" />
-    <state x="738" y="398" key="#Tomcat_Server" timestamp="1588583626664">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="738" y="398" key="#Tomcat_Server/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588583626664" />
-    <state x="2659" y="261" key="FileChooserDialogImpl" timestamp="1588751044178">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588583622601" />
-    <state x="2659" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588751044178" />
-    <state width="1293" height="286" key="GridCell.Tab.0.bottom" timestamp="1589179540143">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093458" />
-    <state width="1293" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179540143" />
-    <state width="1293" height="286" key="GridCell.Tab.0.center" timestamp="1589179540143">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093458" />
-    <state width="1293" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179540143" />
-    <state width="1293" height="286" key="GridCell.Tab.0.left" timestamp="1589179540142">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093458" />
-    <state width="1293" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179540142" />
-    <state width="1293" height="286" key="GridCell.Tab.0.right" timestamp="1589179540143">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093458" />
-    <state width="1293" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179540143" />
-    <state width="1293" height="286" key="GridCell.Tab.1.bottom" timestamp="1589179539987">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539987" />
-    <state width="1293" height="286" key="GridCell.Tab.1.center" timestamp="1589179539986">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539986" />
-    <state width="1293" height="286" key="GridCell.Tab.1.left" timestamp="1589179539986">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539986" />
-    <state width="1293" height="286" key="GridCell.Tab.1.right" timestamp="1589179539986">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539986" />
-    <state width="1293" height="286" key="GridCell.Tab.2.bottom" timestamp="1589179539987">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539987" />
-    <state width="1293" height="286" key="GridCell.Tab.2.center" timestamp="1589179539987">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539987" />
-    <state width="1293" height="286" key="GridCell.Tab.2.left" timestamp="1589179539987">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539987" />
-    <state width="1293" height="286" key="GridCell.Tab.2.right" timestamp="1589179539987">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1281" height="282" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588748093459" />
-    <state width="1293" height="286" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179539987" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589179820777">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589179820777" />
-    <state x="2582" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1589149240609">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2582" y="254" key="VcsDiffUtil.ChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589149240609" />
-    <state x="2668" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1589136782701">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2668" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589136782701" />
-    <state x="2262" y="140" key="new project wizard" timestamp="1588748368779">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2262" y="140" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588748368779" />
+    <state x="657" y="105" width="619" height="829" key="#Tomcat_7.0.100" />
+    <state x="657" y="105" width="619" height="829" key="#Tomcat_7.0.100/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="738" y="398" key="#Tomcat_Server" />
+    <state x="738" y="398" key="#Tomcat_Server/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2659" y="261" key="FileChooserDialogImpl" />
+    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state x="2659" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.bottom" />
+    <state width="1281" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.center" />
+    <state width="1281" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.left" />
+    <state width="1281" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.right" />
+    <state width="1281" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.bottom" />
+    <state width="1281" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.center" />
+    <state width="1281" height="282" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.left" />
+    <state width="1281" height="282" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.right" />
+    <state width="1281" height="282" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.bottom" />
+    <state width="1281" height="282" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.center" />
+    <state width="1281" height="282" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.left" />
+    <state width="1281" height="282" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.right" />
+    <state width="1281" height="282" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" />
+    <state width="1293" height="286" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2582" y="254" key="VcsDiffUtil.ChangesDialog" />
+    <state x="2582" y="254" key="VcsDiffUtil.ChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2668" y="233" key="git4idea.branch.GitSmartOperationDialog" />
+    <state x="2668" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
+    <state x="2262" y="140" key="new project wizard" />
+    <state x="2262" y="140" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -771,9 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/addProduct.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kompix/checkout/asd.java" />
     <entry file="jar://E:/xampp/tomcat/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class" />
     <entry file="file://$PROJECT_DIR$/src/kompix/checkout/Model/Order.java" />
@@ -798,20 +736,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kompix/checkout/Order.java" />
     <entry file="file://$PROJECT_DIR$/src/kompix/checkout/Checkout.java" />
-    <entry file="file://$PROJECT_DIR$/web/js/addCart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="33" selection-start-line="33" selection-end-line="38" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/koszyk.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
@@ -833,43 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/UserAddress/dao/AddressDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="38" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/IDs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/Checkout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/CheckoutDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-          <folding>
-            <element signature="method#createOrder#0;class#CheckoutDao#0" />
-            <element signature="method#createOrderProducts#0;class#CheckoutDao#0" />
-            <element signature="method#getProductID#0;class#CheckoutDao#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/konto.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="283" column="58" lean-forward="true" selection-start-line="283" selection-start-column="14" selection-end-line="283" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -882,22 +773,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projekt-sklep.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!block;n#localStorageTest#0" />
-            <element signature="n#!!block;n#fillCart#0" />
-            <element signature="n#!!block;n#setCartCostValue#0" />
-            <element signature="n#!!block;n#setDeliveryCostValue#0" />
-            <element signature="n#!!block;n#setCartCounter#0" />
-            <element signature="n#!!block;n#setFinalCartCost#0" />
-            <element signature="n#!!block;n#emptyAlertCart#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kompix/product/CategoryAdd.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -913,24 +788,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/login/dao/LoginDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="43" column="5" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="43" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kompix/imageLoader/dao/loadImageDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/login/controller/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -948,16 +809,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/GeneratePDF/asd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/GeneratePDF/dao/GeneratePDFDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/login/model/LoginData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/GenerateOrderPDF/asd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/CheckoutDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="method#createOrder#0;class#CheckoutDao#0" />
+            <element signature="method#getIDs#0;class#CheckoutDao#0" />
+            <element signature="method#createOrderProducts#0;class#CheckoutDao#0" />
+            <element signature="method#getProductID#0;class#CheckoutDao#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/UserAddress/dao/AddressDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="29" column="13" selection-start-line="25" selection-start-column="11" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/login/dao/LoginDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding>
+            <element signature="method#isPasswdCorrect#0;class#LoginDao#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="169" column="102" selection-start-line="169" selection-start-column="102" selection-end-line="169" selection-end-column="102" />
+        <state relative-caret-position="391">
+          <caret line="142" column="48" lean-forward="true" selection-start-line="142" selection-start-column="48" selection-end-line="142" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/login/controller/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="39" column="66" lean-forward="true" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/placeOrder/Checkout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="27" column="87" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/addProduct.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/addCart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" selection-start-line="33" selection-end-line="38" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="290" column="33" lean-forward="true" selection-start-line="290" selection-start-column="33" selection-end-line="290" selection-end-column="33" />
           <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!block;n#localStorageTest#0" />
+            <element signature="n#!!block;n#fillCart#0" />
+            <element signature="n#!!block;n#setCartCostValue#0" />
+            <element signature="n#!!block;n#setDeliveryCostValue#0" />
+            <element signature="n#!!block;n#setCartCounter#0" />
+            <element signature="n#!!block;n#setFinalCartCost#0" />
+            <element signature="n#!!block;n#emptyAlertCart#0" />
+            <element signature="e#8087#8532#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/konto.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="324" column="16" lean-forward="true" selection-start-line="324" selection-start-column="16" selection-end-line="324" selection-end-column="16" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/GenerateOrderPDF/GeneratePDF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="73" column="241" selection-start-line="73" selection-start-column="241" selection-end-line="73" selection-end-column="241" />
         </state>
       </provider>
     </entry>
@@ -969,9 +952,9 @@
           <artifact-editor>
             <show-content>
               <type id="javaee-facet-resources" />
-              <type id="library" />
               <type id="artifact" />
               <type id="jpa-descriptors" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>kompix</last-edited>
@@ -1011,7 +994,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mysql-connector-java-8.0.19</last-edited>
+          <last-edited>itextpdf-5.5.13.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1040,6 +1023,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

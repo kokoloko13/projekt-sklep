@@ -129,10 +129,9 @@
           </sql:query>
 
         <c:forEach var="product" items="${prods.rows}">
-
           <div class="product">
             <div class="product_thumb">
-              <img src="images/thumb.png" alt="${product.product_name} Thumbnail" />
+              <img src="data:image/jpeg;base64,${Base64.getEncoder().encodeToString(product.photo1)}" alt="${product.product_name} Thumbnail" />
             </div>
             <div class="product_title"><a href="#">${product.product_name}</a></div>
             <div class="product_priceAndControl">
@@ -168,7 +167,7 @@
 
             <div class="product">
               <div class="product_thumb">
-                <img src="images/thumb.png" alt="${product.product_name} Thumbnail" />
+                <img src="data:image/jpeg;base64,${Base64.getEncoder().encodeToString(product.photo1)}" alt="${product.product_name} Thumbnail" />
               </div>
               <div class="product_title"><a href="#">${product.product_name}</a></div>
               <div class="product_priceAndControl">

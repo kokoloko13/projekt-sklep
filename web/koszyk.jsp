@@ -54,10 +54,10 @@
             <a href="index.jsp"><p>Kompix</p></a>
           </div>
           <div class="search">
-            <form action="/Search" class="searchForm" method="GET">
+            <form action="/szukaj.jsp" class="searchForm" method="GET">
               <input
                 type="text"
-                name="search"
+                name="q"
                 id="searchField"
                 placeholder="Czego szukasz?"
               />
@@ -81,54 +81,23 @@
           <div class="nav_categories">
             <i class="fas fa-times nav_exit_mobile_menu"></i>
             <ul>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-desktop"></i>
-                    <p>Komputery stacjonarne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-mobile"></i>
-                    <p>Telefony</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-laptop"></i>
-                    <p>Laptopy i tablety</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-keyboard"></i>
-                    <p>Urządzenia peryferyjne</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-microchip"></i>
-                    <p>Podzespoły komputerowe</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="nav_category_item">
-                    <i class="fas fa-gamepad"></i>
-                    <p>Gaming</p>
-                  </div>
-                </a>
-              </li>
+              <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                                 url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                                 user="root"  password=""/>
+
+              <sql:query dataSource="${db}" var="rs">
+                SELECT * from categories;
+              </sql:query>
+              <c:forEach var="categories" items="${rs.rows}">
+                <li>
+                  <a href="/produkty.jsp?category=${categories.category_name}">
+                    <div class="nav_category_item">
+                      <i class="${categories.category_icon}"></i>
+                      <p>${categories.category_name}</p>
+                    </div>
+                  </a>
+                </li>
+              </c:forEach>
             </ul>
           </div>
         </div>

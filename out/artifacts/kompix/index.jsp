@@ -62,10 +62,10 @@
             <a href="index.jsp"><p>Kompix</p></a>
           </div>
           <div class="search">
-            <form action="/Search" class="searchForm" method="GET">
+            <form action="/szukaj.jsp" class="searchForm" method="GET">
               <input
                 type="text"
-                name="search"
+                name="q"
                 id="searchField"
                 placeholder="Czego szukasz?"
               />
@@ -89,7 +89,7 @@
             <ul>
               <c:forEach var="categories" items="${rs.rows}">
                 <li>
-                  <a href="#">
+                  <a href="/produkty.jsp?category=${categories.category_name}">
                     <div class="nav_category_item">
                       <i class="${categories.category_icon}"></i>
                       <p>${categories.category_name}</p>
@@ -133,7 +133,7 @@
             <div class="product_thumb">
               <img src="data:image/jpeg;base64,${Base64.getEncoder().encodeToString(product.photo1)}" alt="${product.product_name} Thumbnail" />
             </div>
-            <div class="product_title"><a href="#">${product.product_name}</a></div>
+            <div class="product_title"><a href="/produkt.jsp?prod=${product.id_products}">${product.product_name}</a></div>
             <div class="product_priceAndControl">
               <div class="product_price">
                 <span class="price">${product.price}</span>
@@ -169,7 +169,7 @@
               <div class="product_thumb">
                 <img src="data:image/jpeg;base64,${Base64.getEncoder().encodeToString(product.photo1)}" alt="${product.product_name} Thumbnail" />
               </div>
-              <div class="product_title"><a href="#">${product.product_name}</a></div>
+              <div class="product_title"><a href="/produkt.jsp?prod=${product.id_products}">${product.product_name}</a></div>
               <div class="product_priceAndControl">
                 <div class="product_price">
                   <span class="price">${product.price}</span>

@@ -66,10 +66,10 @@
             <a href="/index.jsp"><p>Kompix</p></a>
           </div>
           <div class="search">
-            <form action="/Search" class="searchForm" method="GET">
+            <form action="/szukaj.jsp" class="searchForm" method="GET">
               <input
                 type="text"
-                name="search"
+                name="q"
                 id="searchField"
                 placeholder="Czego szukasz?"
               />
@@ -107,7 +107,7 @@
               </sql:query>
               <c:forEach var="categories" items="${rs.rows}">
                 <li>
-                  <a href="#">
+                  <a href="/produkty.jsp?category=${categories.category_name}">
                     <div class="nav_category_item">
                       <i class="${categories.category_icon}"></i>
                       <p>${categories.category_name}</p>

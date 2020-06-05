@@ -7,11 +7,14 @@
 <%
   int bad_credentials = 0;
   String user_email = null;
+  String register_info = null;
+
   Cookie[] cookies = request.getCookies();
   if(cookies != null){
     for(Cookie cookie : cookies){
       if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
       if(cookie.getName().equals("bad_credentials")) bad_credentials = 1;
+      if(cookie.getName().equals("register_info")) register_info = cookie.getValue();
     }
   }
   if(user_email != null){
@@ -184,6 +187,15 @@
                   oninput="this.setCustomValidity('')"
           />
         </div>
+        <%
+            if (register_info != null) {
+                if(register_info.equals("true")){
+                  out.write("<div><p style=\"color: green;\">Konto zostało utworzone pomyślnie.</p></div>");
+                }else if(register_info.equals("false")){
+                    out.write("<div><p style=\"color: red;\">Konto nie zostało utworzone. Użytkownik o takim adresie e-mail już istnieje.</p></div>");
+                }
+            }
+        %>
         <div class="checks">
           <label>
             <input

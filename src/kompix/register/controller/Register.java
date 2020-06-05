@@ -8,6 +8,7 @@ import kompix.register.model.NewUser;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,12 +46,19 @@ public class Register extends HttpServlet {
             if(check == true){
                 newUserDao.reqisterNewUser(newbie);
 
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
-                rd.include(request, response);
+                Cookie register_info_cookie = new Cookie("register_info", "true");
+                register_info_cookie.setMaxAge(5);
+                response.addCookie(register_info_cookie);
+
+
+                response.sendRedirect("/logowanie.jsp");
 
             }else{
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
-                rd.include(request, response);
+                Cookie register_info_cookie = new Cookie("register_info", "false");
+                register_info_cookie.setMaxAge(5);
+                response.addCookie(register_info_cookie);
+
+                response.sendRedirect("/logowanie.jsp");
             }
     }
 }

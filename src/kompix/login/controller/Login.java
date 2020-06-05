@@ -37,8 +37,7 @@ public class Login extends HttpServlet {
             badCredentialsCookie.setMaxAge(5);
             response.addCookie(badCredentialsCookie);
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
-            rd.include(request, response);
+            response.sendRedirect("/logowanie.jsp");
         }
 
     }

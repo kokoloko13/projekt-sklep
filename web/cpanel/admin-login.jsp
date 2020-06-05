@@ -1,3 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+  String admin_email = null;
+  Cookie[] cookies = request.getCookies();
+
+  if(cookies != null){
+    for(Cookie cookie : cookies){
+      if(cookie.getName().equals("admin_email")) admin_email = cookie.getValue();
+    }
+  }
+  if(admin_email != null){
+    response.sendRedirect("/cpanel/dashboard.jsp");
+  }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,9 +40,9 @@
             Logowanie do cPanelu</br> sklepu <span class="shopName">Kompix</span>
           </h3>
           <form action="/AdminLogin" method="post">
-            <input type="text" name="adminLogin" placeholder="Login" required/>
+            <input type="email" name="adminLogin" placeholder="Login" required/>
             <input type="password" name="adminPass" placeholder="Hasło" required/>
-            <p>Zaloguj</p>
+            <button type="submit" style="cursor: pointer; margin: 0 auto; width: 50%; background: none; padding: .5rem 1rem; color: #34495E; border: 1px solid #34495E; border-radius: 10px">Zaloguj</button>
           </form>
         </div>
       </div>

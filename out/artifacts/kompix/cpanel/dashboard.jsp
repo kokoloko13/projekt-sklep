@@ -12,7 +12,7 @@
     }
   }
   if(admin_email == null){
-    response.sendRedirect("/cpanel/admin-login.html");
+    response.sendRedirect("/cpanel/admin-login.jsp");
   }
 %>
 

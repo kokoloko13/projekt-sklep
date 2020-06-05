@@ -1,6 +1,5 @@
 package kompix.login.controller;
 
-import com.itextpdf.html2pdf.HtmlConverter;
 import kompix.login.dao.LoginDao;
 import kompix.login.model.LoginUser;
 
@@ -11,9 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/AdminLogin")
 public class AdminLogin extends HttpServlet {
@@ -23,9 +20,9 @@ public class AdminLogin extends HttpServlet {
         String adminEmail = request.getParameter("adminLogin");
         String adminPasswd = request.getParameter("adminPass");
 
-        LoginUser loginUser = new LoginUser(adminEmail, adminPasswd);
+        LoginUser loginAdmin = new LoginUser(adminEmail, adminPasswd);
 
-        if(loginDao.loginUser(loginUser) == true){
+        if(loginDao.loginAdmin(loginAdmin) == true){
             Cookie adminCookie = new Cookie("admin_email", adminEmail);
             adminCookie.setMaxAge(30*60);
             response.addCookie(adminCookie);
@@ -33,7 +30,7 @@ public class AdminLogin extends HttpServlet {
 
             response.sendRedirect("/cpanel/dashboard.jsp");
         }else{
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/admin-login.html");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/admin-login.jsp");
             rd.include(request, response);
         }
 

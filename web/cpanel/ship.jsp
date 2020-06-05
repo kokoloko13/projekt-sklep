@@ -12,7 +12,7 @@ if(cookie.getName().equals("admin_email")) admin_email = cookie.getValue();
 }
 }
 if(admin_email == null){
-response.sendRedirect("/cpanel/admin-login.html");
+response.sendRedirect("/cpanel/admin-login.jsp");
 }
 %>
 

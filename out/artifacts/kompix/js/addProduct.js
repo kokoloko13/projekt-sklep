@@ -1,15 +1,14 @@
-let fileContainers = document.getElementsByClassName("fileContainer");
-let fileInputs = document.querySelectorAll(".fileContainer > input");
+let fileContainer = document.getElementsByClassName("fileContainer")[0];
+let fileInput = document.querySelectorAll(".fileContainer > input")[0];
 
-for (container of fileContainers) {
-  container.addEventListener("click", (event) => {
+
+  fileContainer.addEventListener("click", (event) => {
     let fileInput = event.target.children[0];
     fileInput.click();
   });
-}
 
-for (input of fileInputs) {
-  input.addEventListener("change", (event) => {
+
+  fileInput.addEventListener("change", (event) => {
     const file = event.target.files[0];
     let plusIcon = event.target.nextElementSibling;
     let parent = event.target.parentElement;
@@ -40,4 +39,4 @@ for (input of fileInputs) {
       reader.readAsDataURL(file);
     }
   });
-}
+

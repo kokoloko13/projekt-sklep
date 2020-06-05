@@ -1686,6 +1686,7 @@
     -ms-grid-column-align: center;
         justify-self: center;
     padding: 0.5rem 0.5rem;
+    width: 100%;
   }
   body .container .products .product_thumb img {
     width: 100%;
@@ -1702,7 +1703,7 @@
     width: 100%;
     white-space: nowrap;
     overflow: hidden !important;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis !important;
     text-decoration: none;
     color: black;
   }

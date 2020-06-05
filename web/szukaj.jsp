@@ -134,7 +134,7 @@ if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
                     <div class="product_thumb">
                         <img src="data:image/jpeg;base64,${Base64.getEncoder().encodeToString(product.photo1)}" alt="${product.product_name} Thumbnail" />
                     </div>
-                    <div class="product_title"><a href="/produkt.jsp?prod=${product.id_products}">${product.product_name} ${param[q]}</a></div>
+                    <div class="product_title"><a href="/produkt.jsp?prod=${product.id_products}">${product.product_name}</a></div>
                     <div class="product_priceAndControl">
                         <div class="product_price">
                             <span class="price">${product.price}</span>

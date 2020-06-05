@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/cpanel.css" />
+    <title>Kompix cPanel | Logowanie</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cpanelLogin">
+        <div class="cpanelLoginBox">
+          <h3>
+            Logowanie do cPanelu</br> sklepu <span class="shopName">Kompix</span>
+          </h3>
+          <form action="/AdminLogin" method="post">
+            <input type="text" name="adminLogin" placeholder="Login" required/>
+            <input type="password" name="adminPass" placeholder="Hasło" required/>
+            <p>Zaloguj</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

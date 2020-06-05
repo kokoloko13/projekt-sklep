@@ -1,0 +1,1317 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html body .container {
+  position: relative;
+}
+
+html body .container .cpanelLogin {
+  width: 100%;
+  height: 100vh;
+  background: #34495e;
+  position: relative;
+}
+
+html body .container .cpanelLoginBox {
+  max-width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 2rem;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.59);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.59);
+}
+
+html body .container .cpanelLoginBox h3 {
+  text-align: center;
+}
+
+html body .container .cpanelLoginBox form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+  row-gap: 1rem;
+}
+
+html body .container .cpanelLoginBox form input {
+  color: #34495e;
+  background: transparent;
+  border: 1px solid #34495e;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+html body .container .cpanelLoginBox form p {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  color: #34495e;
+  border: 1px solid #34495e;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+
+html body .container .dim {
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 99vh;
+  z-index: 2;
+}
+
+html body .container .top-bar {
+  background: #ecf0f1;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -webkit-box-shadow: -1px 7px 25px -10px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 7px 25px -10px rgba(0, 0, 0, 0.2);
+}
+
+html body .container .top-bar .logo {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0;
+}
+
+html body .container .top-bar .logo a {
+  color: black;
+  text-decoration: none;
+  font-size: 3rem;
+  font-family: "Comic Neue", cursive;
+}
+
+html body .container .top-bar .user {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0;
+}
+
+html body .container .top-bar .user p {
+  padding: 0 2rem;
+}
+
+html body .container .top-bar .user p:first-child {
+  font-weight: bold;
+}
+
+html body .container .top-bar .user p:last-child {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container .mainContent {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 15% 85%;
+      grid-template-columns: 15% 85%;
+}
+
+html body .container .mainContent .left {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  background-color: #ecf0f1;
+  -webkit-box-shadow: 21px 25px 44px -17px rgba(0, 0, 0, 0.2);
+  box-shadow: 21px 25px 44px -17px rgba(0, 0, 0, 0.2);
+}
+
+html body .container .mainContent .left .active {
+  background: #34495e;
+}
+
+html body .container .mainContent .left .active a {
+  color: #ecf0f1 !important;
+}
+
+html body .container .mainContent .left .nav {
+  list-style-type: none;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+html body .container .mainContent .left .nav li {
+  width: 100%;
+  padding: 1.5rem 0;
+  border-top: 1px groove;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .container .mainContent .left .nav li:last-child {
+  border-bottom: 1px groove;
+}
+
+html body .container .mainContent .left .nav li a {
+  color: #000;
+  text-decoration: none;
+}
+
+html body .container .mainContent .right {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  padding: 2rem 3rem 2rem 3rem;
+  margin: 0;
+  background: #2c3e50;
+}
+
+html body .container .mainContent .right .counters {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% 40% 35%;
+      grid-template-columns: 25% 40% 35%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+  padding: 2rem 0 3.5rem 0;
+}
+
+html body .container .mainContent .right .counters h3 {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+html body .container .mainContent .right .counters_clients, html body .container .mainContent .right .counters_newsletter, html body .container .mainContent .right .counters_totalOrders {
+  background: #ecf0f1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1rem 0;
+}
+
+html body .container .mainContent .right .counters_clients h2, html body .container .mainContent .right .counters_newsletter h2, html body .container .mainContent .right .counters_totalOrders h2 {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+html body .container .mainContent .right .counters_clients h3, html body .container .mainContent .right .counters_newsletter h3, html body .container .mainContent .right .counters_totalOrders h3 {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+html body .container .mainContent .right .charts {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+  row-gap: 2rem;
+}
+
+html body .container .mainContent .right .charts .income_per_month,
+html body .container .mainContent .right .charts .orders_per_month,
+html body .container .mainContent .right .charts .products_count {
+  background: #ecf0f1;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+}
+
+html body .container .mainContent .right .charts .income_per_month h2,
+html body .container .mainContent .right .charts .orders_per_month h2,
+html body .container .mainContent .right .charts .products_count h2 {
+  text-align: center;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+html body .container .mainContent .right .categories {
+  width: 100%;
+  color: #ecf0f1;
+  height: 83.5vh;
+}
+
+html body .container .mainContent .right .categories_header {
+  width: 55%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 50% 30%;
+      grid-template-columns: 20% 50% 30%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border-bottom: 1px solid #ecf0f1;
+  text-align: center;
+}
+
+html body .container .mainContent .right .categories_header_mng {
+  padding-right: 2rem;
+}
+
+html body .container .mainContent .right .categories_items {
+  overflow-y: scroll;
+  width: 60%;
+  margin: 0 auto;
+  height: 45%;
+}
+
+html body .container .mainContent .right .categories_items::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+html body .container .mainContent .right .categories_items::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .categories_items::-webkit-scrollbar-thumb {
+  background-color: #ecf0f1;
+  outline: 1px solid #ecf0f1;
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .categories_items .category {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 50% 30%;
+      grid-template-columns: 20% 50% 30%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+html body .container .mainContent .right .categories_items .category_id, html body .container .mainContent .right .categories_items .category_name {
+  font-size: 1.2rem;
+}
+
+html body .container .mainContent .right .categories_items .category_icon {
+  display: none;
+}
+
+html body .container .mainContent .right .categories_items .category_mng > i {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+html body .container .mainContent .right .categories .addCategory {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+html body .container .mainContent .right .categories .addCategory > p {
+  width: 40%;
+  border: 1px solid #ecf0f1;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container .mainContent .right .categories .addCategory > p:hover {
+  text-decoration: underline;
+}
+
+html body .container .mainContent .right .ships {
+  width: 100%;
+  color: #ecf0f1;
+  height: 83.5vh;
+}
+
+html body .container .mainContent .right .ships_header {
+  width: 55%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 30% 20% 30%;
+      grid-template-columns: 20% 30% 20% 30%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border-bottom: 1px solid #ecf0f1;
+  text-align: center;
+}
+
+html body .container .mainContent .right .ships_header_mng {
+  padding-right: 2rem;
+}
+
+html body .container .mainContent .right .ships_items {
+  overflow-y: scroll;
+  width: 60%;
+  margin: 0 auto;
+  height: 45%;
+}
+
+html body .container .mainContent .right .ships_items::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+html body .container .mainContent .right .ships_items::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .ships_items::-webkit-scrollbar-thumb {
+  background-color: #ecf0f1;
+  outline: 1px solid #ecf0f1;
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .ships_items .ship {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 30% 20% 30%;
+      grid-template-columns: 20% 30% 20% 30%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+html body .container .mainContent .right .ships_items .ship_id, html body .container .mainContent .right .ships_items .ship_name, html body .container .mainContent .right .ships_items .ship_price {
+  font-size: 1.2rem;
+}
+
+html body .container .mainContent .right .ships_items .ship_shortship {
+  display: none;
+}
+
+html body .container .mainContent .right .ships_items .ship_mng > i {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+html body .container .mainContent .right .ships .addShip {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+html body .container .mainContent .right .ships .addShip > p {
+  width: 40%;
+  border: 1px solid #ecf0f1;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container .mainContent .right .ships .addShip > p:hover {
+  text-decoration: underline;
+}
+
+html body .container .mainContent .right .products {
+  width: 100%;
+  color: #ecf0f1;
+  height: 83.5vh;
+}
+
+html body .container .mainContent .right .products_filters {
+  width: 65%;
+  display: -ms-grid;
+  display: grid;
+  margin: 0 auto;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  row-gap: 0.5rem;
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+  padding-bottom: 2rem;
+}
+
+html body .container .mainContent .right .products_filters > div,
+html body .container .mainContent .right .products_filters label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .container .mainContent .right .products_filters > div input,
+html body .container .mainContent .right .products_filters label input {
+  margin-right: 1rem;
+}
+
+html body .container .mainContent .right .products_filters > div:nth-child(2), html body .container .mainContent .right .products_filters > div:nth-child(5),
+html body .container .mainContent .right .products_filters label:nth-child(2),
+html body .container .mainContent .right .products_filters label:nth-child(5) {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+html body .container .mainContent .right .products_header {
+  width: 65%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 11.1% 28.5% 18.6% 9% 14.8% 17%;
+      grid-template-columns: 11.1% 28.5% 18.6% 9% 14.8% 17%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border-bottom: 1px solid #ecf0f1;
+  text-align: center;
+}
+
+html body .container .mainContent .right .products_header_mng {
+  padding-right: 2rem;
+}
+
+html body .container .mainContent .right .products_items {
+  overflow-y: scroll;
+  width: 75%;
+  margin: 0 auto;
+  height: 45%;
+}
+
+html body .container .mainContent .right .products_items::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+html body .container .mainContent .right .products_items::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .products_items::-webkit-scrollbar-thumb {
+  background-color: #ecf0f1;
+  outline: 1px solid #ecf0f1;
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .products_items .product {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 11.1% 28.5% 18.6% 9% 12% 17%;
+      grid-template-columns: 11.1% 28.5% 18.6% 9% 12% 17%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+html body .container .mainContent .right .products_items .product_id, html body .container .mainContent .right .products_items .product_name, html body .container .mainContent .right .products_items .product_qty, html body .container .mainContent .right .products_items .product_price, html body .container .mainContent .right .products_items .product_category {
+  font-size: 1.2rem;
+}
+
+html body .container .mainContent .right .products_items .product_desc, html body .container .mainContent .right .products_items .product_img {
+  display: none;
+}
+
+html body .container .mainContent .right .products_items .product_mng > i {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+html body .container .mainContent .right .products .addProduct {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+html body .container .mainContent .right .products .addProduct > p {
+  width: 40%;
+  border: 1px solid #ecf0f1;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container .mainContent .right .products .addProduct > p:hover {
+  text-decoration: underline;
+}
+
+html body .container .mainContent .right .orders {
+  width: 100%;
+  color: #ecf0f1;
+  height: 83.5vh;
+}
+
+html body .container .mainContent .right .orders_header {
+  width: 55%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 30% 30% 10%;
+      grid-template-columns: 30% 30% 30% 10%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border-bottom: 1px solid #ecf0f1;
+  text-align: center;
+}
+
+html body .container .mainContent .right .orders_header_mng {
+  padding-right: 2rem;
+}
+
+html body .container .mainContent .right .orders_items {
+  overflow-y: scroll;
+  width: 60%;
+  margin: 0 auto;
+  height: 45%;
+}
+
+html body .container .mainContent .right .orders_items::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+html body .container .mainContent .right .orders_items::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .orders_items::-webkit-scrollbar-thumb {
+  background-color: #ecf0f1;
+  outline: 1px solid #ecf0f1;
+  border-radius: 10px;
+}
+
+html body .container .mainContent .right .orders_items .order {
+  width: 95%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 30% 30% 10%;
+      grid-template-columns: 30% 30% 30% 10%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 0.7rem 0;
+  margin: 0.4rem auto;
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+html body .container .mainContent .right .orders_items .order_status, html body .container .mainContent .right .orders_items .order_num, html body .container .mainContent .right .orders_items .order_date {
+  font-size: 1.2rem;
+}
+
+html body .container .mainContent .right .orders_items .order_id, html body .container .mainContent .right .orders_items .order_vat, html body .container .mainContent .right .orders_items .order_tracking, html body .container .mainContent .right .orders_items .order_ship {
+  display: none;
+}
+
+html body .container .mainContent .right .orders_items .order_mng > i {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+html body .container .modalActive {
+  display: initial !important;
+}
+
+html body .container #removeModal {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  color: #34495e;
+  width: 30%;
+  border-radius: 10px;
+  padding: 2rem 2rem 1rem 2rem;
+  z-index: 3;
+}
+
+html body .container #removeModal > .modalBody {
+  text-align: center;
+}
+
+html body .container #removeModal > .removeModalChoice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2rem 0 1rem 0;
+}
+
+html body .container #removeModal > .removeModalChoice > #removeCancel,
+html body .container #removeModal > .removeModalChoice > #removeYes {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container #removeModal > .removeModalChoice > #removeCancel {
+  color: red;
+  border: 1px solid red;
+}
+
+html body .container #removeModal > .removeModalChoice > #removeYes {
+  color: green;
+  border: 1px solid green;
+}
+
+html body .container #editModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  color: #34495e;
+  border-radius: 10px;
+  padding: 2rem 2rem 1rem 2rem;
+  z-index: 3;
+}
+
+html body .container #editModal .modalHeader {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #34495e;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1rem;
+}
+
+html body .container #editModal .modalHeader p:first-child {
+  padding: 0.5rem 0 0.5rem 1.3rem;
+}
+
+html body .container #editModal .modalHeader p:nth-child(2) {
+  padding: 0.5rem 5rem 0.5rem 0;
+}
+
+html body .container #editModal .modalHeader p:last-child {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+}
+
+html body .container #editModal .modalBody {
+  width: 100%;
+}
+
+html body .container #editModal .modalBody form {
+  width: 100%;
+}
+
+html body .container #editModal .modalBody form .inputs {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .container #editModal .modalBody form .inputs input {
+  padding: 0 0.5rem;
+  margin: 1rem;
+  border: 1px solid #34495e;
+  outline: none;
+}
+
+html body .container #editModal .modalBody form .inputs input:focus {
+  border: 1px solid #1a242e;
+}
+
+html body .container #editModal .modalBody form .inputs input:first-child {
+  width: 30%;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+html body .container #editModal .modalBody form .inputs input:nth-child(2) {
+  width: 130%;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+html body .container #editModal .modalBody form .inputs input:last-child {
+  width: 70%;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+html body .container #editModal .modalBody form .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .container #editModal .modalBody form .buttons p {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #34495e;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+html body .container #editOrderModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  color: #34495e;
+  border-radius: 10px;
+  padding: 2rem 2rem 1rem 2rem;
+  z-index: 3;
+}
+
+html body .container #editOrderModal .modalBody {
+  width: 100%;
+}
+
+html body .container #editOrderModal .modalBody form {
+  width: 100%;
+}
+
+html body .container #editOrderModal .modalBody form .inputs {
+  width: 100%;
+}
+
+html body .container #editOrderModal .modalBody form .inputs > div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% 50%;
+      grid-template-columns: 40% 50%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .container #editOrderModal .modalBody form .inputs > div input {
+  width: 150%;
+  padding: 0 0.5rem;
+  margin: 1rem;
+  border: 1px solid #34495e;
+  outline: none;
+}
+
+html body .container #editOrderModal .modalBody form .inputs > div input:focus {
+  border: 1px solid #1a242e;
+}
+
+html body .container #editOrderModal .modalBody form .inputs > div input:first-child {
+  width: 30%;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+html body .container #editOrderModal .modalBody form .inputs > div input:nth-child(2) {
+  width: 130%;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+html body .container #editOrderModal .modalBody form .inputs > div input:last-child {
+  width: 70%;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+html body .container #editOrderModal .modalBody form .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .container #editOrderModal .modalBody form .buttons p {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #34495e;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+html body .container #addCategoryModal,
+html body .container #addShipModal,
+html body .container #addProductModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  color: #34495e;
+  border-radius: 10px;
+  padding: 2rem 2rem 1rem 2rem;
+  z-index: 3;
+}
+
+html body .container #addCategoryModal .modalHeader,
+html body .container #addShipModal .modalHeader,
+html body .container #addProductModal .modalHeader {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #34495e;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1rem;
+}
+
+html body .container #addCategoryModal .modalHeader p:first-child,
+html body .container #addShipModal .modalHeader p:first-child,
+html body .container #addProductModal .modalHeader p:first-child {
+  padding: 0.5rem 0 0.5rem 4.5rem;
+}
+
+html body .container #addCategoryModal .modalHeader p:last-child,
+html body .container #addShipModal .modalHeader p:last-child,
+html body .container #addProductModal .modalHeader p:last-child {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+}
+
+html body .container #addCategoryModal .modalBody,
+html body .container #addShipModal .modalBody,
+html body .container #addProductModal .modalBody {
+  width: 100%;
+}
+
+html body .container #addCategoryModal .modalBody form,
+html body .container #addShipModal .modalBody form,
+html body .container #addProductModal .modalBody form {
+  width: 100%;
+}
+
+html body .container #addCategoryModal .modalBody form .inputs,
+html body .container #addShipModal .modalBody form .inputs,
+html body .container #addProductModal .modalBody form .inputs {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .container #addCategoryModal .modalBody form .inputs input,
+html body .container #addShipModal .modalBody form .inputs input,
+html body .container #addProductModal .modalBody form .inputs input {
+  padding: 0 0.5rem;
+  margin: 1rem;
+  border: 1px solid #34495e;
+  outline: none;
+}
+
+html body .container #addCategoryModal .modalBody form .inputs input:focus,
+html body .container #addShipModal .modalBody form .inputs input:focus,
+html body .container #addProductModal .modalBody form .inputs input:focus {
+  border: 1px solid #1a242e;
+}
+
+html body .container #addCategoryModal .modalBody form .inputs input:first-child,
+html body .container #addShipModal .modalBody form .inputs input:first-child,
+html body .container #addProductModal .modalBody form .inputs input:first-child {
+  width: 60%;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+html body .container #addCategoryModal .modalBody form .inputs input:last-child,
+html body .container #addShipModal .modalBody form .inputs input:last-child,
+html body .container #addProductModal .modalBody form .inputs input:last-child {
+  width: 40%;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+html body .container #addCategoryModal .modalBody form .buttons,
+html body .container #addShipModal .modalBody form .buttons,
+html body .container #addProductModal .modalBody form .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .container #addCategoryModal .modalBody form .buttons p,
+html body .container #addShipModal .modalBody form .buttons p,
+html body .container #addProductModal .modalBody form .buttons p {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #34495e;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+html body .container #addProductModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  color: #34495e;
+  border-radius: 10px;
+  padding: 2rem 2rem 1rem 2rem;
+  z-index: 3;
+}
+
+html body .container #addProductModal .modalBody form {
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+  -ms-grid-rows: 1fr 1fr auto;
+      grid-template-rows: 1fr 1fr auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+html body .container #addProductModal .modalBody form .files_container {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  padding: 3rem 0 1.5rem 0;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 150px;
+      grid-template-columns: 150px;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .container #addProductModal .modalBody form .files_container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: none;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+html body .container #addProductModal .modalBody form .files_container .big {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1 / span 3;
+  height: 150px;
+}
+
+html body .container #addProductModal .modalBody form .files_container .big > i {
+  font-size: 2rem;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -30%);
+          transform: translate(-50%, -30%);
+  color: grey;
+}
+
+html body .container #addProductModal .modalBody form .files_container .big > .uploadMessage {
+  color: grey;
+  position: absolute;
+  top: 70%;
+  -webkit-transform: translateY(-70%);
+          transform: translateY(-70%);
+  width: 100%;
+  text-align: center;
+}
+
+html body .container #addProductModal .modalBody form .files_container .fileContainer {
+  border: 1px solid;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+html body .container #addProductModal .modalBody form .files_container .fileContainer > input[type="file"] {
+  display: none;
+  pointer-events: none;
+}
+
+html body .container #addProductModal .modalBody form .files_container .small {
+  width: 100px;
+  height: 100px;
+  margin: 1rem 0 1rem 1rem;
+}
+
+html body .container #addProductModal .modalBody form .files_container .small > i {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: grey;
+}
+
+html body .container #addProductModal .modalBody form .inputs_container {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5rem 0 1rem 0;
+  width: 100%;
+}
+
+html body .container #addProductModal .modalBody form .inputs_container input[type="text"] {
+  width: 100%;
+  margin: 0.5rem auto;
+  padding-left: 1rem;
+  height: 2rem;
+  outline: none;
+  border: 1px solid;
+  border-radius: 10px;
+  background: transparent;
+}
+
+html body .container #addProductModal .modalBody form .inputs_container select {
+  width: 100%;
+  padding-left: 1rem;
+  height: 2rem;
+  outline: none;
+  border: 1px solid #34495e;
+  border-radius: 10px;
+  background: transparent;
+  color: #34495e;
+  cursor: pointer;
+}
+
+html body .container #addProductModal .modalBody form .inputs_container .productPrice_container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+html body .container #addProductModal .modalBody form .inputs_container .productPrice_container span {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  -webkit-transform: translate(-2%, -50%);
+          transform: translate(-2%, -50%);
+  border-left: 1px solid;
+  border-radius: 10px;
+  padding: 0.4rem;
+  text-align: right;
+}
+
+html body .container #addProductModal .modalBody form .inputs_container .productPrice_container input {
+  padding-right: 20%;
+  background: transparent;
+}
+
+html body .container #addProductModal .modalBody form textarea {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  width: 100%;
+  resize: none;
+  margin: 2rem auto 1rem auto;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  outline: none;
+  border: 1px solid;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  background: transparent;
+}
+
+html body .container #addProductModal .modalBody form .modalButtons {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  width: 50%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+html body .container #addProductModal .modalBody form .modalButtons p {
+  color: #34495e;
+  border: 1px solid #34495e;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1rem 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container #addProductModal .modalBody form .modalButtons p:last-child {
+  color: red;
+  border: 1px solid red;
+  margin-bottom: 3rem;
+}
+/*# sourceMappingURL=cpanel.css.map */

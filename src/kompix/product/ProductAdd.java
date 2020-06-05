@@ -64,8 +64,7 @@ public class ProductAdd extends HttpServlet {
         amount=Integer.parseInt(amount_tmp);
         price=Float.parseFloat(price_tmp);
 
-
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/dodaj-produkt.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/products.jsp");
             PrintWriter out= response.getWriter();
         Connection conn = null; // connection to the database
         String message = null;
@@ -79,26 +78,36 @@ public class ProductAdd extends HttpServlet {
             statement.setFloat(3, price);
             statement.setString(4, describe);
             statement.setString(5, category);
+
             if (photo1 != null) {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(6, photo1);
             }
+
             if (photo2 != null) {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(7, photo2);
+            }else{
+                statement.setNull(7, Types.BLOB);
             }
+
             if (photo3 != null) {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(8, photo3);
+            }else{
+                statement.setNull(8, Types.BLOB);
             }
+
             if (photo4 != null) {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(9, photo4);
+            }else{
+                statement.setNull(9, Types.BLOB);
             }
+
             int row = statement.executeUpdate();
-            if (row > 0) {
-                out.println("<font color=green>Produkt Dodany</font>");
-            }
+            response.sendRedirect("/cpanel/products.jsp");
+
             conn.close();
         } catch (Exception e) {
             System.out.print(e);

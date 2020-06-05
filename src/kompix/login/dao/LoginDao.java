@@ -1,14 +1,14 @@
 package kompix.login.dao;
 
 import kompix.cipher.CipherKompix;
-import kompix.login.model.LoginData;
+import kompix.login.model.LoginUser;
 
 import java.sql.*;
 
 public class LoginDao {
     private CipherKompix aes = new CipherKompix();
 
-    public boolean loginUser(LoginData loginData){
+    public boolean loginUser(LoginUser loginUser){
         String SELECT_USER_SQL = "SELECT * FROM users WHERE user_email=? AND user_passwd=?;";
 
 
@@ -19,8 +19,42 @@ public class LoginDao {
                     .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 
             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_USER_SQL);
-            preparedStatement.setString(1, loginData.getEmail());
-            preparedStatement.setString(2, aes.encrypt(loginData.getPasswd()));
+            preparedStatement.setString(1, loginUser.getEmail());
+            preparedStatement.setString(2, aes.encrypt(loginUser.getPasswd()));
+
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            if(rs.next() != false){
+                conn.close();
+                return true;
+            }else{
+                conn.close();
+                return false;
+            }
+
+        }catch(ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public boolean loginAdmin(LoginUser loginUser){
+        String SELECT_ADMIN_SQL = "SELECT * FROM users WHERE user_email=? AND user_passwd=? AND admin=1;";
+
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection conn = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+
+            PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ADMIN_SQL);
+            preparedStatement.setString(1, loginUser.getEmail());
+            preparedStatement.setString(2, aes.encrypt(loginUser.getPasswd()));
 
             System.out.println(preparedStatement);
 

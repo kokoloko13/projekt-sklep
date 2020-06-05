@@ -46,14 +46,10 @@ public class Register extends HttpServlet {
                 newUserDao.reqisterNewUser(newbie);
 
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
-                PrintWriter out= response.getWriter();
-                out.println("<font color=green>Account has been created.</font>");
                 rd.include(request, response);
 
             }else{
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
-                PrintWriter out= response.getWriter();
-                out.println("<font color=red>Account with given email exist.</font>");
                 rd.include(request, response);
             }
     }

@@ -5,11 +5,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%
+  int bad_credentials = 0;
   String user_email = null;
   Cookie[] cookies = request.getCookies();
   if(cookies != null){
     for(Cookie cookie : cookies){
       if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
+      if(cookie.getName().equals("bad_credentials")) bad_credentials = 1;
     }
   }
   if(user_email != null){
@@ -129,6 +131,11 @@
                   oninvalid="this.setCustomValidity('To pole jest wymagane!')"
                   oninput="this.setCustomValidity('')"
           />
+          <%
+            if(bad_credentials != 0){
+              out.write("<p style=\"color: red;\">Nieprawidłowy login lub hasło</p>");
+            }
+          %>
         </div>
         <div class="checks">
           <label>
@@ -145,7 +152,7 @@
       <hr class="hr-text" data-content="Nie masz konta?" />
     </div>
     <div class="login_page_register">
-      <form action="/Register" method="post">
+      <form action="/Register" method="post" onsubmit="compareInputs();">
         <h2>Zostań klientem</h2>
         <div class="input">
           <p>Adres E-mail</p>
@@ -273,5 +280,6 @@
 </div>
 <script src="js/animate.js"></script>
 <script src="js/script.js"></script>
+<script src="js/comparePass.js"></script>
 </body>
 </html>

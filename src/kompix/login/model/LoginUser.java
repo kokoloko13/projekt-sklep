@@ -1,10 +1,10 @@
 package kompix.login.model;
 
-public class LoginData {
+public class LoginUser {
     private String email;
     private String passwd;
 
-    public LoginData(String email, String passwd){
+    public LoginUser(String email, String passwd){
         this.email = email;
         this.passwd = passwd;
     }

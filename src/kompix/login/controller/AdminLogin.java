@@ -15,29 +15,25 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/AdminLogin")
+public class AdminLogin extends HttpServlet {
     LoginDao loginDao = new LoginDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("login");
-        String passwd = request.getParameter("passwd");
+        String adminEmail = request.getParameter("adminLogin");
+        String adminPasswd = request.getParameter("adminPass");
 
-        LoginUser loginUser = new LoginUser(email, passwd);
+        LoginUser loginUser = new LoginUser(adminEmail, adminPasswd);
 
         if(loginDao.loginUser(loginUser) == true){
-            Cookie loginCookie = new Cookie("user_email", email);
-            loginCookie.setMaxAge(30*60);
-            response.addCookie(loginCookie);
+            Cookie adminCookie = new Cookie("admin_email", adminEmail);
+            adminCookie.setMaxAge(30*60);
+            response.addCookie(adminCookie);
 
 
-            response.sendRedirect("/konto.jsp");
+            response.sendRedirect("/cpanel/dashboard.jsp");
         }else{
-            Cookie badCredentialsCookie = new Cookie("bad_credentials", "true");
-            badCredentialsCookie.setMaxAge(5);
-            response.addCookie(badCredentialsCookie);
-
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/logowanie.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/admin-login.html");
             rd.include(request, response);
         }
 

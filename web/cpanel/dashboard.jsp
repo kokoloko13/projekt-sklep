@@ -122,50 +122,63 @@
     </div>
 
     <script>
+
+      function random_rgba(i) {
+        let temp = [];
+
+        for(let j=0; j < i; j++){
+          var o = Math.round, r = Math.random, s = 255;
+          temp.push("rgba(" + o(r()*s) + "," + o(r()*s) + "," + o(r()*s) + ",1)");
+        }
+        return temp;
+      }
+
+
+      let clientsCounter = document.getElementsByClassName("counters_clients")[0].children[1];
+      let ordersCounter = document.getElementsByClassName("counters_totalOrders")[0].children[1];
+      let newsCounter = document.getElementsByClassName("counters_newsletter")[0].children[1];
+
       let incomePerMonthChart = document
-        .getElementById("incomePerMonthChart")
-        .getContext("2d");
+              .getElementById("incomePerMonthChart")
+              .getContext("2d");
       let ordersPerMonthChart = document
-        .getElementById("ordersPerMonthChart")
-        .getContext("2d");
+              .getElementById("ordersPerMonthChart")
+              .getContext("2d");
       let productsCountChart = document
-        .getElementById("productsCountChart")
-        .getContext("2d");
+              .getElementById("productsCountChart")
+              .getContext("2d");
+
+
+
+      let url = '/GetDashboardData';
+      let dbData;
+
+      var req = new XMLHttpRequest();
+      req.overrideMimeType("application/json");
+      req.open('GET', url, false);
+      req.onload  = function() {
+        var resp = JSON.parse(req.responseText);
+          dbData = resp;
+          console.log("Inside:");
+        console.log(resp);
+      };
+      req.send(null);
+
+      console.log("Outside: ");
+      console.log(dbData);
+
+      clientsCounter.innerHTML = dbData["counters"][0]["value"];
+      ordersCounter.innerHTML = dbData["counters"][1]["value"];
+      newsCounter.innerHTML = dbData["counters"][2]["value"];
 
       let incomeChart = new Chart(incomePerMonthChart, {
         type: "line",
         data: {
-          labels: [
-            "Styczeń",
-            "Luty",
-            "Marzec",
-            "Kwiecień",
-            "Maj",
-            "Czerwiec",
-            "Lipiec",
-            "Sierpień",
-            "Wrzesień",
-            "Październik",
-            "Listopad",
-            "Grudzień",
-          ],
+          labels: dbData["months"],
           datasets: [
             {
               label: "Przychód w PLN",
-              data: [
-                202404,
-                2040422,
-                105995,
-                40404,
-                133234,
-                202404,
-                2040422,
-                105995,
-                40404,
-                133234,
-                0,
-                9999999,
-              ],
+              data: dbData["incomePerMonth"],
               backgroundColor: "green",
             },
           ],
@@ -189,37 +202,11 @@
       let ordersChart = new Chart(ordersPerMonthChart, {
         type: "line",
         data: {
-          labels: [
-            "Styczeń",
-            "Luty",
-            "Marzec",
-            "Kwiecień",
-            "Maj",
-            "Czerwiec",
-            "Lipiec",
-            "Sierpień",
-            "Wrzesień",
-            "Październik",
-            "Listopad",
-            "Grudzień",
-          ],
+          labels: dbData["months"],
           datasets: [
             {
               label: "Ilość zamówień",
-              data: [
-                202,
-                2040,
-                10599,
-                40404,
-                133234,
-                202404,
-                2040422,
-                105995,
-                40404,
-                133234,
-                0,
-                9999999,
-              ],
+              data: dbData["ordersPerMonth"],
               backgroundColor: "blue",
             },
           ],
@@ -243,25 +230,11 @@
       let productsChart = new Chart(productsCountChart, {
         type: "pie",
         data: {
-          labels: [
-            "Komputery stacjonarne",
-            "Telefony",
-            "Laptopy i tablety",
-            "Urządzenia peryferyjne",
-            "Podzespoły komputerowy",
-            "Gaming",
-          ],
+          labels: dbData["categories"],
           datasets: [
             {
-              data: [17, 32, 81, 173, 59, 27],
-              backgroundColor: [
-                "rgba(26, 188, 156, 1.0)",
-                "rgba(39, 174, 96, 1.0)",
-                "rgba(52, 152, 219, 1.0)",
-                "rgba(155, 89, 182, 1.0)",
-                "rgba(52, 73, 94, 1.0)",
-                "rgba(231, 76, 60, 1.0)",
-              ],
+              data: dbData["productsQty"],
+              backgroundColor: random_rgba(dbData["categories"].length),
             },
           ],
         },
@@ -271,6 +244,9 @@
           },
         },
       });
+
+
+
     </script>
     <script src="../js/logout.js"></script>
   </body>

@@ -13,7 +13,7 @@ public class GetDataDAO {
 
        String USER_COUNT_QUERY = "SELECT COUNT(id_user) userCounter FROM users WHERE admin = 0 AND isactive=1;";
        String ORDER_COUNT_QUERY = "SELECT COUNT(id_order) orderCounter FROM orders WHERE order_status IN (1,4,5,6);";
-       String NEWS_COUNT_QUERY = "SELECT COUNT(id_user) newsCounter FROM users WHERE admin = 0 AND isactive=1 AND newsletter=1;";
+       String NEWS_COUNT_QUERY = "SELECT COUNT(id_news) newsCounter FROM newsletter;";
 
 
        String INCOMEMNTH_COUNT_QUERY = "SELECT mth.name month, IFNULL(SUM(total_price),0) incomeValue FROM"

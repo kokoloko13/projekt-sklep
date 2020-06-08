@@ -170,22 +170,22 @@
               </div>
             </div>
             <div class="checkoutButton">
-              <p>Przejdź do płatności</p>
+              <p>Złóż zamówienie</p>
             </div>
           </div>
         </div>
         <div class="cart_step">
           <div class="cart_step_thankyou">
-            <h2>Dziękujemy za dokonanie zakupu.</h2>
+            <h2>Dziękujemy za złożenie zamówienia.</h2>
             <p>
-              Potwierdzenie wraz z fakturą zakupu zostało wysłane na twój adres
+              Potwierdzenie wraz z fakturą zostało wysłane na twój adres
               e-mail przypisany do konta.
             </p>
             <p>
               Informacje dotyczące zamówienia możesz sprawdzić także na swoim
-              <a href="konto.html#zamowienia">koncie</a>.
+              <a href="konto.jsp#zamowienia">koncie</a>.
             </p>
-            <a class="thankyou_back" href="/index.html">Powrót</a>
+            <a class="thankyou_back" href="/">Powrót</a>
           </div>
         </div>
       </div>

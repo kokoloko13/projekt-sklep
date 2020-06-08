@@ -46,7 +46,7 @@
       <div class="top-bar">
         <div class="logo"><a href="../index.jsp">Kompix</a></div>
         <div class="user">
-          <p>Użytkownik: Admin</p>
+          <p>Użytkownik: <% if(admin_email != null){out.print(admin_email.substring(0, admin_email.indexOf('@')));} %></p>
           <p id="logout">Wyloguj</p>
         </div>
       </div>
@@ -248,6 +248,6 @@
 
 
     </script>
-    <script src="../js/logout.js"></script>
+    <script src="../js/logoutAdmin.js"></script>
   </body>
 </html>

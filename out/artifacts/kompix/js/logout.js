@@ -1,7 +1,9 @@
-let logoutButton = document.getElementById("logout");
+let logoutButton = document.getElementById("logoutAccount");
 
-logoutButton.addEventListener("click", async function() {
-        let response = await fetch('/Logout');
-        let data = await response.json();
-        return data;
+logoutButton.addEventListener("click", () => {
+    const Http = new XMLHttpRequest();
+const url = '/Logout';
+Http.open("GET", url);
+Http.send();
+window.location.replace("/");
 });

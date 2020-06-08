@@ -33,6 +33,11 @@ for (let i = 0; i < editIcon.length; i++) {
       editModal.classList.remove("modalActive");
       document.getElementsByClassName("dim")[0].remove();
     });
+
+    editCommitButton.addEventListener("click", ()=>{
+      editForm.submit();
+      window.location.reload();
+    });
   });
 }
 
@@ -58,6 +63,15 @@ for (let i = 0; i < removeIcon.length; i++) {
       document.getElementsByClassName("dim")[0].remove();
       removeModal.classList.remove("modalActive");
     });
+
+  removeModalYesButton.addEventListener("click", () => {
+    const Http = new XMLHttpRequest();
+  const url = '/DeleteCategory?id=' + categoryID.innerHTML;
+  Http.open("GET", url);
+  Http.send();
+  window.location.reload();
+});
+
   });
 }
 
@@ -78,6 +92,11 @@ addCategoryButton.addEventListener("click", () => {
     addCategoryForm.reset();
     document.getElementsByClassName("dim")[0].remove();
     addCategoryModal.classList.remove("modalActive");
+  });
+
+  addCategorySubmitButton.addEventListener("click", ()=>{
+    addCategoryForm.submit();
+    window.location.reload();
   });
 });
 

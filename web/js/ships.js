@@ -35,6 +35,11 @@ for (let i = 0; i < editIcon.length; i++) {
       editModal.classList.remove("modalActive");
       document.getElementsByClassName("dim")[0].remove();
     });
+
+  editCommitButton.addEventListener("click", () => {
+  editForm.submit();
+  window.location.reload();
+});
   });
 }
 
@@ -60,6 +65,14 @@ for (let i = 0; i < removeIcon.length; i++) {
       document.getElementsByClassName("dim")[0].remove();
       removeModal.classList.remove("modalActive");
     });
+
+  removeModalYesButton.addEventListener("click", () => {
+    const Http = new XMLHttpRequest();
+  const url = '/DeleteShip?id=' + shipID.innerHTML;
+  Http.open("GET", url);
+  Http.send();
+  window.location.reload();
+});
   });
 }
 
@@ -80,6 +93,12 @@ addShipButton.addEventListener("click", () => {
     addShipForm.reset();
     document.getElementsByClassName("dim")[0].remove();
     addShipModal.classList.remove("modalActive");
+  });
+
+  addShipSubmitButton.addEventListener("click", () => {
+    addShipForm.submit();
+    window.location.reload();
+
   });
 });
 

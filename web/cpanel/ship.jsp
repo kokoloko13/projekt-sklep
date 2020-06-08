@@ -44,7 +44,7 @@ response.sendRedirect("/cpanel/admin-login.jsp");
       <div class="top-bar">
         <div class="logo"><a href="../index.jsp">Kompix</a></div>
         <div class="user">
-          <p>Użytkownik: Admin</p>
+          <p>Użytkownik: <%if(admin_email != null){out.print(admin_email.substring(0, admin_email.indexOf('@')));}%></p>
           <p id="logout">Wyloguj</p>
         </div>
       </div>
@@ -93,38 +93,28 @@ response.sendRedirect("/cpanel/admin-login.jsp");
             </div>
 
             <div class="ships_items">
-              <div class="ship">
-                <div class="ship_id">1</div>
-                <div class="ship_name">Kurier DHL</div>
-                <div class="ship_shortship">DHL</div>
-                <div class="ship_price">15.00</div>
-                <div class="ship_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj sposób dostawy"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń sposób dostawy"></i>
-                </div>
-              </div>
+<sql:setDataSource var="db2" driver="com.mysql.jdbc.Driver"
+                   url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                   user="root"  password=""/>
+
+<sql:query dataSource="${db2}" var="rs2">
+  SELECT * FROM ship;
+</sql:query>
+
+<c:forEach var="ship" items="${rs2.rows}">
 
               <div class="ship">
-                <div class="ship_id">2</div>
-                <div class="ship_name">Kurier DPD</div>
-                <div class="ship_shortship">DPD</div>
-                <div class="ship_price">15.00</div>
+                <div class="ship_id">${ship.id_ship}</div>
+                <div class="ship_name">${ship.ship_method_long}</div>
+                <div class="ship_shortship">${ship.ship_method_short}</div>
+                <div class="ship_price">${ship.ship_price}</div>
                 <div class="ship_mng">
                   <i class="fas fa-edit edit_Flag" title="Edytuj sposób dostawy"></i>
                   <i class="fas fa-trash-alt remove_Flag" title="Usuń sposób dostawy"></i>
                 </div>
               </div>
+  </c:forEach>
 
-              <div class="ship">
-                <div class="ship_id">3</div>
-                <div class="ship_name">Inpost, Paczkomaty 24/7</div>
-                <div class="ship_shortship">inpost</div>
-                <div class="ship_price">10.00</div>
-                <div class="ship_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj sposób dostawy"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń sposób dostawy"></i>
-                </div>
-              </div>
             </div>
             <div class="addShip">
               <p>Dodaj nowy sposób dostawy</p>
@@ -159,10 +149,10 @@ response.sendRedirect("/cpanel/admin-login.jsp");
           <div class="modalBody">
             <form action="/EditShip" method="POST">
                    <div class="inputs">
-                    <input type="text" value="2" disabled>
-                    <input type="text" value="Kurier DHL" required>
-                    <input type="text" value="DHL" required>
-                    <input type="text" value="10.00" required>
+                    <input type="text" value="2" name="shipID" readonly>
+                    <input type="text" value="Kurier DHL" name="shipLong" required>
+                    <input type="text" value="DHL" name="shipShort" required>
+                    <input type="text" value="10.00" name="shipPrice" required>
                    </div>
                 <div class="buttons">
                     <p class="editCancel">Anuluj</p>
@@ -180,11 +170,11 @@ response.sendRedirect("/cpanel/admin-login.jsp");
             <p>Cena</p>
           </div>
           <div class="modalBody">
-          <form action="/ShipAdd" method="POST">
+          <form action="/AddShip" method="POST">
             <div class="inputs">
                 <input
             type="text"
-            name="productship"
+            name="productShip"
             placeholder="Nazwa sposobu dostawy"
             required
             />
@@ -202,6 +192,6 @@ response.sendRedirect("/cpanel/admin-login.jsp");
       </div>
     </div>
     <script src="../js/ships.js"></script>
-    <script src="../js/logout.js"></script>
+    <script src="../js/logoutAdmin.js"></script>
   </body>
 </html>

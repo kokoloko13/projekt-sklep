@@ -17,8 +17,8 @@ public class CategoryAdd extends HttpServlet {
     private String category;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.category=request.getParameter("productCategory");
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/cpanel/dodaj-kategorie.html");
-            PrintWriter out= response.getWriter();
+        String icon = request.getParameter("categoryIcon");
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -26,14 +26,13 @@ public class CategoryAdd extends HttpServlet {
                     .getConnection("jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             Statement st = conn.createStatement();
 
-            st.executeUpdate("insert into categories(category_name)values('" + this.category + "')");
-            out.println("<font color=green>Kategoria Dodana</font>");
+            st.executeUpdate("insert into categories(category_name, category_icon)values('" + this.category + "', '"+ icon +"');");
+            response.sendRedirect("/cpanel/categories.jsp");
             conn.close();
         } catch (Exception e) {
             System.out.print(e);
             e.printStackTrace();
         }
-            rd.include(request, response);
 
 
         }

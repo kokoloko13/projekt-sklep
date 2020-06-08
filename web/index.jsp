@@ -118,7 +118,6 @@
           <div class="breaker_line"></div>
         </div>
         <div class="products">
-          <i class="fas fa-chevron-left"></i>
 
           <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
                              url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
@@ -147,10 +146,6 @@
 
           </c:forEach>
 
-          <i class="fas fa-chevron-right"></i>
-          <div class="showMore">
-            <a href="#"><button>Pokaż więcej</button></a>
-          </div>
         </div>
       </div>
 
@@ -161,7 +156,6 @@
           <div class="breaker_line"></div>
         </div>
         <div class="products">
-          <i class="fas fa-chevron-left"></i>
 
           <c:forEach var="product" items="${prods.rows}">
 
@@ -182,11 +176,6 @@
             </div>
 
           </c:forEach>
-
-          <i class="fas fa-chevron-right"></i>
-          <div class="showMore">
-            <a href="#"><button>Pokaż więcej</button></a>
-          </div>
         </div>
       </div>
 
@@ -204,7 +193,7 @@
           <div class="newsletter_right_info">
             <p>Nie przegap żadnej promocji, zdobywaj dodatkowe rabaty.</p>
           </div>
-          <form action="/Newsletter" method="post">
+          <form action="/AddNewsletter" method="post">
             <input
               type="email"
               name="newsletter_email"

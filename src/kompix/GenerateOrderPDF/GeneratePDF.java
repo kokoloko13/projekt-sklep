@@ -1,9 +1,11 @@
 package kompix.GenerateOrderPDF;
 
 import com.itextpdf.html2pdf.HtmlConverter;
+import kompix.mailer.Mailer;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,7 +20,7 @@ public class GeneratePDF {
     }
 
     public boolean gen(){
-        String SELECT_USERORDER_SQL = "SELECT u.first_name, u.last_name, u.user_phone, a.street, a.city, a.zipcode,"
+        String SELECT_USERORDER_SQL = "SELECT u.user_email, u.first_name, u.last_name, u.user_phone, a.street, a.city, a.zipcode,"
         +" o.order_num, o.total_price, s.ship_method_long, s.ship_price"
         +" FROM users AS u, address AS a, orders AS o INNER JOIN ship AS s ON"
         +" o.id_ship = s.id_ship WHERE u.id_user = o.id_user AND o.id_order=?;";
@@ -119,6 +121,7 @@ public class GeneratePDF {
                 }
 
                 System.out.println( "PDF Created!" );
+
 
                 String INSERT_VAT_SQL = "INSERT INTO vat(vat) VALUES(?);";
 

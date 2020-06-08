@@ -2,6 +2,7 @@ package kompix.placeOrder;
 
 import com.google.gson.Gson;
 import kompix.GenerateOrderPDF.GeneratePDF;
+import kompix.mailer.Mailer;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/Checkout")
 public class Checkout extends HttpServlet {
@@ -57,19 +59,10 @@ public class Checkout extends HttpServlet {
             GeneratePDF genPDF = new GeneratePDF(orderID, ordersPdfPath);
             genPDF.gen();
 
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-
-//            Gson gson = new Gson();
-//
-//            Object shit = request.getParameter("objarray");
-//
-//
-//           // Order order = gson.fromJson(shit, Order.class);
-//
-//        System.out.println("Shit: "+shit);
-//      //      System.out.println("Order name: "+order.name);
     }
 }

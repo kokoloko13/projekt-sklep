@@ -119,7 +119,6 @@ if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
             <div class="breaker_line"></div>
         </div>
         <div class="products">
-            <i class="fas fa-chevron-left"></i>
 
             <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
                                url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
@@ -158,11 +157,6 @@ if(cookie.getName().equals("user_email")) user_email = cookie.getValue();
             <c:if test="${fn:length(search.rows) == 0}">
                 <h2 style="text-align: center;">Brak produktów w tej kategorii.</h2>
             </c:if>
-
-            <i class="fas fa-chevron-right"></i>
-            <div class="showMore">
-                <a href="#"><button>Pokaż więcej</button></a>
-            </div>
         </div>
     </div>
 

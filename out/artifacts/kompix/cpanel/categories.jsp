@@ -44,7 +44,7 @@
       <div class="top-bar">
         <div class="logo"><a href="../index.jsp">Kompix</a></div>
         <div class="user">
-          <p>Użytkownik: Admin</p>
+          <p>Użytkownik: <%if(admin_email != null){out.print(admin_email.substring(0, admin_email.indexOf('@')));}%></p>
           <p id="logout">Wyloguj</p>
         </div>
       </div>
@@ -90,67 +90,27 @@
               <div class="categories_header_name">Nazwa kategorii</div>
               <div class="categories_header_mng">Opcje</div>
             </div>
-
             <div class="categories_items">
-              <div class="category">
-                <div class="category_id">1</div>
-                <div class="category_name">Komputery stacjonarne</div>
-                <div class="category_icon">fa fas-icon</div>
-                <div class="category_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj Kategorię"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń Kategorię"></i>
-                </div>
-              </div>
+            <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                               url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                               user="root"  password=""/>
+
+            <sql:query dataSource="${db}" var="rs">
+              SELECT * FROM categories;
+            </sql:query>
+            <c:forEach var="category" items="${rs.rows}">
 
               <div class="category">
-                <div class="category_id">2</div>
-                <div class="category_name">Telefony</div>
-                <div class="category_icon">fa fas-icon</div>
+                <div class="category_id">${category.id_category}</div>
+                <div class="category_name">${category.category_name}</div>
+                <div class="category_icon">${category.category_icon}</div>
                 <div class="category_mng">
                   <i class="fas fa-edit edit_Flag" title="Edytuj Kategorię"></i>
                   <i class="fas fa-trash-alt remove_Flag" title="Usuń Kategorię"></i>
                 </div>
               </div>
+            </c:forEach>
 
-              <div class="category">
-                <div class="category_id">3</div>
-                <div class="category_name">Laptopy i tablety</div>
-                <div class="category_icon">fa fas-icon</div>
-                <div class="category_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj Kategorię"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń Kategorię"></i>
-                </div>
-              </div>
-
-              <div class="category">
-                <div class="category_id">4</div>
-                <div class="category_name">Urządzenia peryferyjne</div>
-                <div class="category_icon">fa fas-icon</div>
-                <div class="category_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj Kategorię"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń Kategorię"></i>
-                </div>
-              </div>
-
-              <div class="category">
-                <div class="category_id">5</div>
-                <div class="category_name">Podzespoły komputerowy</div>
-                <div class="category_icon">fa fas-icon</div>
-                <div class="category_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj Kategorię"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń Kategorię"></i>
-                </div>
-              </div>
-
-              <div class="category">
-                <div class="category_id">6</div>
-                <div class="category_name">Gaming</div>
-                <div class="category_icon">fa fas-icon</div>
-                <div class="category_mng">
-                  <i class="fas fa-edit edit_Flag" title="Edytuj Kategorię"></i>
-                  <i class="fas fa-trash-alt remove_Flag" title="Usuń Kategorię"></i>
-                </div>
-              </div>
             </div>
             <div class="addCategory">
               <p>Dodaj nową kategorię</p>
@@ -182,11 +142,11 @@
             <p>Ikona</p>
           </div>
           <div class="modalBody">
-            <form action="/editCategory" method="POST">
+            <form action="/EditCategory" method="POST">
                    <div class="inputs">
-                    <input type="text" value="2" disabled>
-                    <input type="text" value="Telefony" required>
-                    <input type="text" value="fas fa-mobile" required>
+                    <input type="text" value="2" readonly name="category_id">
+                    <input type="text" value="Telefony" name="category_newName" required>
+                    <input type="text" value="fas fa-mobile" name="category_newIcon" required>
                    </div>
                 <div class="buttons">
                     <p class="editCancel">Anuluj</p>
@@ -222,6 +182,6 @@
       </div>
     </div>
     <script src="../js/categories.js"></script>
-    <script src="../js/logout.js"></script>
+    <script src="../js/logoutAdmin.js"></script>
   </body>
 </html>

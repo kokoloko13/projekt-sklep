@@ -261,6 +261,7 @@ for (trashIcon of trashIcons) {
 
 checkoutButton.addEventListener("click", () => {
   let order = [];
+  let orderSteps = document.getElementsByClassName("cart_step");
 
   for(let i=0; i < localStorage.length; i++){
 
@@ -300,6 +301,8 @@ checkoutButton.addEventListener("click", () => {
     }
   });
 
-localStorage.clear();
+  localStorage.clear();
+  orderSteps[0].style.display = "none";
+  orderSteps[1].style.display = "initial";
 
 });

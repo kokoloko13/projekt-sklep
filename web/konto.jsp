@@ -79,17 +79,6 @@
           <div class="profile_cart">
             <div class="profile-signed">
               <i class="fas fa-user"></i>
-              <c:forEach var="dataRow" items="${data.rows}">
-                <c:set var = "name" scope = "session" value = "${dataRow.user_email.substring(0, dataRow.user_email.indexOf('@'))}"/>
-                <c:choose>
-                  <c:when test="${name.equals('None')}">
-                    <p>Witaj, <br /><c:out value="${'name'}"/></p>
-                  </c:when>
-                  <c:when test="${!name.equals('None')}">
-                    <p>Witaj, <br /><c:out value="${dataRow.first_name}"/></p>
-                  </c:when>
-                </c:choose>
-              </c:forEach>
             </div>
             <div class="shopping_cart">
               <a href="/koszyk.jsp"><i class="fas fa-shopping-cart"><span class="cart_badge">0</span></i></a>
@@ -144,11 +133,15 @@
                 Zmień hasło
               </button>
             </li>
+            <li class="account_category_element">
+              <button id="logoutAccount">
+                Wyloguj
+              </button>
+            </li>
           </ul>
         </div>
-        <c:forEach var="dataRow" items="${data.rows}">
         <div class="account_content">
-
+          <c:forEach var="dataRow" items="${data.rows}">
           <div class="account_content_personal_data" style="display: none;">
             <div class="account_content_personal_data_element">
               <h2>Imię i nazwisko:</h2>
@@ -213,6 +206,7 @@
               <button type="submit">Zmień dane</button>
             </form>
           </div>
+          </c:forEach>
           <div class="account_content_password_change" style="display: none;">
             <form action="/ChangePasswd" method="post">
               <div class="input">
@@ -324,7 +318,6 @@
             </div>
           </div>
         </div>
-        </c:forEach>
       </div>
 
       <!-- Footer -->
@@ -397,5 +390,6 @@
     <script src="js/animate.js"></script>
     <script src="js/acc.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/logout.js"></script>
   </body>
 </html>

@@ -44,7 +44,7 @@
       <div class="top-bar">
         <div class="logo"><a href="../index.jsp">Kompix</a></div>
         <div class="user">
-          <p>Użytkownik: Admin</p>
+          <p>Użytkownik: <% if(admin_email != null){out.print(admin_email.substring(0, admin_email.indexOf('@')));}%></p>
           <p id="logout">Wyloguj</p>
         </div>
       </div>
@@ -93,21 +93,47 @@
             </div>
 
             <div class="orders_items">
-              <div class="order">
-                <div class="order_id">22</div>
-                <div class="order_num">1590809686</div>
-                <div class="order_date">2020-05-27</div>
-                <div class="order_status">Oczekiwanie na zapłatę</div>
-                <div class="order_vat">ordersPDF/1590809686.pdf</div>
-                <div class="order_ship">Kurier DPD</div>
-                <div class="order_tracking">tracking_url</div>
-                <div class="order_mng">
-                  <i
-                    class="fas fa-edit edit_Flag"
-                    title="Edytuj zamówienie"
-                  ></i>
+
+              <sql:setDataSource var="db2" driver="com.mysql.jdbc.Driver"
+                                 url="jdbc:mysql://localhost:3306/shop?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                                 user="root"  password=""/>
+
+              <sql:query dataSource="${db2}" var="rs2">
+                SELECT
+                *,
+                DATE_FORMAT(o.order_date, '%Y-%m-%d') date
+                FROM
+                orders AS o
+                INNER JOIN
+                ship AS s
+                ON
+                o.id_ship = s.id_ship
+                INNER JOIN
+                status AS st
+                ON o.order_status = st.id_status
+                INNER JOIN
+                vat AS v
+                ON o.id_vat = v.id_vat;
+              </sql:query>
+
+              <c:forEach var="orders" items="${rs2.rows}">
+                <div class="order">
+                  <div class="order_id">${orders.id_order}</div>
+                  <div class="order_num">${orders.order_num}</div>
+                  <div class="order_date">${orders.date}</div>
+                  <div class="order_status" data-status="${orders.order_status}">${orders.status_name}</div>
+                  <div class="order_vat">${orders.vat}</div>
+                  <div class="order_ship">${orders.ship_method_long}</div>
+                  <div class="order_tracking">${orders.tracking}</div>
+                  <div class="order_mng">
+                    <i
+                            class="fas fa-edit edit_Flag"
+                            title="Edytuj zamówienie"
+                    ></i>
+                  </div>
                 </div>
-              </div>
+              </c:forEach>
+
             </div>
           </div>
         </div>
@@ -120,19 +146,15 @@
             <div class="inputs">
               <div>
                 <p>ID:</p>
-                <input type="text" value="22" disabled />
+                <input type="text" value="22" name="orderID" readonly />
               </div>
               <div>
                 <p>Numer zamówienia:</p>
-                <input type="text" value="1590809686" disabled />
-              </div>
-              <div>
-                <p>Klient:</p>
-                <input type="text" value="Imie Nazwisko" disabled />
+                <input type="text" value="1590809686" readonly />
               </div>
               <div>
                 <p>Data złożenia:</p>
-                <input type="text" value="2020-05-27" disabled />
+                <input type="text" value="2020-05-27" readonly />
               </div>
               <div>
                 <p>Status:</p>
@@ -147,19 +169,19 @@
               </div>
               <div>
                 <p>Wartość:</p>
-                <input type="text" value="13335.00" disabled />
+                <input type="text" value="13335.00" readonly />
               </div>
               <div>
                 <p>Faktura:</p>
-                <input type="text" value="VAT" disabled />
+                <input type="text" value="VAT" readonly />
               </div>
               <div>
                 <p>Metoda dostawy:</p>
-                <input type="text" value="SHIP" disabled />
+                <input type="text" value="SHIP" readonly />
               </div>
               <div>
                 <p>Tracking:</p>
-                <input type="text" value="TRACKING" required />
+                <input type="text" value="TRACKING" name="orderTrack" required />
               </div>
             </div>
             <div class="buttons">
@@ -171,6 +193,6 @@
       </div>
     </div>
     <script src="../js/orders.js"></script>
-    <script src="../js/logout.js"></script>
+    <script src="../js/logoutAdmin.js"></script>
   </body>
 </html>

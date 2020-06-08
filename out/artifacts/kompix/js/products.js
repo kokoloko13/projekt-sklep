@@ -59,6 +59,7 @@ addProductButton.addEventListener("click", () => {
 
   addProductSubmitButton.addEventListener("click", () =>{
     addProductForm.submit();
+    window.location.reload();
   });
 });
 

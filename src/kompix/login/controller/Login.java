@@ -22,12 +22,15 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("login");
         String passwd = request.getParameter("passwd");
+        String stayLogged = request.getParameter("stayLogged");
 
         LoginUser loginUser = new LoginUser(email, passwd);
 
         if(loginDao.loginUser(loginUser) == true){
             Cookie loginCookie = new Cookie("user_email", email);
-            loginCookie.setMaxAge(30*60);
+
+                loginCookie.setMaxAge(30*60);
+
             response.addCookie(loginCookie);
 
 

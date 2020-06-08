@@ -44,7 +44,7 @@
       <div class="top-bar">
         <div class="logo"><a href="../index.jsp">Kompix</a></div>
         <div class="user">
-          <p>Użytkownik: Admin</p>
+          <p>Użytkownik: <% if(admin_email != null){out.print(admin_email.substring(0, admin_email.indexOf('@')));}%></p>
           <p id="logout">Wyloguj</p>
         </div>
       </div>
@@ -85,32 +85,6 @@
         </div>
         <div class="right">
           <div class="products">
-            <div class="products_filters">
-              <label for="1">
-                <input type="checkbox" name="Komputery stacjonarne" id="1" />
-                Komputery stacjonarne
-              </label>
-              <label for="2">
-                <input type="checkbox" name="Telefony" id="2" />
-                Telefony
-              </label>
-              <label for="3">
-                <input type="checkbox" name="Laptopy i tablety" id="3" />
-                Laptopy i tablety
-              </label>
-              <label for="4">
-                <input type="checkbox" name="Urządzenia peryferyjne" id="4" />
-                Urządzenia peryferyjne
-              </label>
-              <label for="5">
-                <input type="checkbox" name="Gaming" id="5" />
-                Gaming
-              </label>
-              <label for="6">
-                <input type="checkbox" name="Podzespoły komputerowy" id="6" />
-                Podzespoły komputerowy
-              </label>
-            </div>
 
             <div class="products_header">
               <div class="products_header_id">Nr.</div>
@@ -223,6 +197,6 @@
     </div>
     <script src="../js/products.js"></script>
     <script src="../js/addProduct.js"></script>
-    <script src="../js/logout.js"></script>
+    <script src="../js/logoutAdmin.js"></script>
   </body>
 </html>

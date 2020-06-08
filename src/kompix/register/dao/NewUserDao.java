@@ -41,7 +41,14 @@ public class NewUserDao {
             preparedStatement.setInt(8, newUser.getAdmin());
             preparedStatement.setInt(9, newUser.getIsActive());
             preparedStatement.setInt(10, newUser.getRulesAccepted().matches("True") ? 1 : 0);
-            preparedStatement.setInt(11, newUser.getNewsletter().matches("True") ? 1 : 0);
+
+            if(newUser.getNewsletter().matches("True")){
+                preparedStatement.setInt(11, 1);
+                (new Newsletter()).registerNewsletter(newUser);
+            }else{
+                preparedStatement.setInt(11, 0);
+            }
+
 
 
 

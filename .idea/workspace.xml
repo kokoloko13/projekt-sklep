@@ -41,14 +41,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/produkt.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="480">
-              <caret line="139" column="57" lean-forward="true" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
-              <folding>
-                <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+              <caret line="139" column="57" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/logowanie.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="189" column="30" selection-start-line="189" selection-start-column="30" selection-end-line="189" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -90,7 +96,6 @@
         <option value="$PROJECT_DIR$/web/cpanel/ship.html" />
         <option value="$PROJECT_DIR$/src/kompix/login/dao/LoginDao.java" />
         <option value="$PROJECT_DIR$/web/js/comparePass.js" />
-        <option value="$PROJECT_DIR$/web/logowanie.jsp" />
         <option value="$PROJECT_DIR$/src/kompix/register/controller/Register.java" />
         <option value="$PROJECT_DIR$/web/cpanel/admin-login.html" />
         <option value="$PROJECT_DIR$/src/kompix/login/controller/AdminLogin.java" />
@@ -137,6 +142,7 @@
         <option value="$PROJECT_DIR$/src/kompix/placeOrder/Checkout.java" />
         <option value="$PROJECT_DIR$/src/kompix/mailer/Mailer.java" />
         <option value="$PROJECT_DIR$/src/kompix/GenerateOrderPDF/GeneratePDF.java" />
+        <option value="$PROJECT_DIR$/web/logowanie.jsp" />
       </list>
     </option>
   </component>
@@ -172,8 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -195,6 +199,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -260,7 +266,6 @@
     </configuration>
     <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="kompix">
           <settings>
@@ -392,7 +397,9 @@
       <workItem from="1591488034969" duration="164000" />
       <workItem from="1591488262957" duration="54000" />
       <workItem from="1591551156594" duration="16031000" />
-      <workItem from="1591616651590" duration="18220000" />
+      <workItem from="1591616651590" duration="18240000" />
+      <workItem from="1591687644162" duration="724000" />
+      <workItem from="1591771064638" duration="1929000" />
     </task>
     <task id="LOCAL-00001" summary="model addproduct">
       <created>1589138385738</created>
@@ -426,11 +433,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136813000" />
+    <option name="totallyTimeSpent" value="139486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Image Layers" order="1" />
@@ -438,9 +444,9 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Learn" order="5" weight="0.32928804" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49019608" visible="true" weight="0.19660194" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.48788926" visible="true" weight="0.21682848" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info id="Web" order="8" sideWeight="0.50980395" side_tool="true" visible="true" weight="0.19660194" />
+      <window_info id="Web" order="8" sideWeight="0.5121107" side_tool="true" visible="true" weight="0.21682848" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3298731" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3298731" />
@@ -464,7 +470,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" x="25" y="253" width="1322" height="201" id="Run" order="9" side_tool="true" weight="0.460356" />
+      <window_info anchor="right" x="25" y="253" width="1322" height="201" id="Run" order="9" side_tool="true" weight="0.20550162" />
       <window_info anchor="right" id="Messages" order="10" side_tool="true" weight="0.23786408" />
       <window_info anchor="right" id="Flutter Inspector" order="11" />
       <window_info anchor="right" id="Flutter Outline" order="12" />
@@ -848,13 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/logowanie.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1470">
-          <caret line="8" selection-start-line="8" selection-end-line="21" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kompix/login/controller/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -940,20 +939,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kompix/mailer/SendMail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../mail.jar!/javax/mail/Authenticator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kompix/mailer/SendMail.java" />
+    <entry file="jar://$PROJECT_DIR$/../mail.jar!/javax/mail/Authenticator.class" />
     <entry file="file://$PROJECT_DIR$/src/kompix/GenerateOrderPDF/GeneratePDF.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -985,10 +972,14 @@
     <entry file="file://$PROJECT_DIR$/web/produkt.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
-          <caret line="139" column="57" lean-forward="true" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+          <caret line="139" column="57" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/logowanie.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="189" column="30" selection-start-line="189" selection-start-column="30" selection-end-line="189" selection-end-column="30" />
         </state>
       </provider>
     </entry>

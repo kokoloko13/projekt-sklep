@@ -133,6 +133,7 @@
                   required
                   oninvalid="this.setCustomValidity('To pole jest wymagane!')"
                   oninput="this.setCustomValidity('')"
+                  minlength="8"
           />
           <%
             if(bad_credentials != 0){
@@ -175,6 +176,7 @@
                   required
                   oninvalid="this.setCustomValidity('To pole jest wymagane!')"
                   oninput="this.setCustomValidity('')"
+                  minlength="8"
           />
         </div>
         <div class="input">
@@ -185,6 +187,7 @@
                   required
                   oninvalid="this.setCustomValidity('To pole jest wymagane!')"
                   oninput="this.setCustomValidity('')"
+                  minlength="8"
           />
         </div>
         <%
